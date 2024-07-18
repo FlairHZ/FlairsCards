@@ -66,10 +66,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cards\MultiBlock.cs" />
+    <Compile Include="Cards\Cannonball.cs" />
     <Compile Include="Cards\EvasiveManuvers.cs" />
     <Compile Include="Cards\BattleAngel.cs" />
+    <Compile Include="Cards\ExtendedMag.cs" />
     <Compile Include="Cards\ImmovableWall.cs" />
-    <Compile Include="Cards\LightweightBullets.cs" />
+    <Compile Include="Cards\LevitatingBullets.cs" />
     <Compile Include="Cards\PrecisionShot.cs" />
     <Compile Include="Cards\SwiftKicks.cs" />
     <Compile Include="Cards\AntiBlock.cs" />

@@ -34,18 +34,21 @@ namespace FlairsCards
         }
         void Start()
         {
-            CustomCard.BuildCard<EvasiveManuvers>();
-            CustomCard.BuildCard<AntiGravity>();
-            CustomCard.BuildCard<ImmovableWall>();
-            CustomCard.BuildCard<SwiftKicks>();
-            CustomCard.BuildCard<PrecisionShot>();
-            CustomCard.BuildCard<AntiBlock>();
-            CustomCard.BuildCard<Weightless>();
-            CustomCard.BuildCard<TankShredder>();
-            CustomCard.BuildCard<BattleAngel>();
-            CustomCard.BuildCard<CripplingBullets>();
-            CustomCard.BuildCard<LevitatingBullets>();
             CustomCard.BuildCard<AllOrNothing>();
+            CustomCard.BuildCard<AntiBlock>();
+            CustomCard.BuildCard<AntiGravity>();
+            CustomCard.BuildCard<BattleAngel>();
+            CustomCard.BuildCard<Cannonball>();
+            CustomCard.BuildCard<CripplingBullets>();
+            CustomCard.BuildCard<EvasiveManuvers>();
+            CustomCard.BuildCard<ExtendedMag>();
+            CustomCard.BuildCard<ImmovableWall>();
+            CustomCard.BuildCard<LevitatingBullets>();
+            CustomCard.BuildCard<MultiBlock>();
+            CustomCard.BuildCard<PrecisionShot>();
+            CustomCard.BuildCard<SwiftKicks>();
+            CustomCard.BuildCard<TankShredder>();
+            CustomCard.BuildCard<Weightless>();
             instance = this;
         }
     }

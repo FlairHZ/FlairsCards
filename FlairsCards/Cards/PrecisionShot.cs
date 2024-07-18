@@ -14,8 +14,8 @@ namespace FlairsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.projectileSize = 0.8f;
-            gun.damage = 1.2f;
+            gun.projectileSize = 0.7f;
+            gun.damage = 1.3f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -49,14 +49,14 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+20%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Projectile Size",
-                    amount = "-20%",
+                    amount = "-30%",
                     simepleAmount = CardInfoStat.SimpleAmount.lower
                 }
             };

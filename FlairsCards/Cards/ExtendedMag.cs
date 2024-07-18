@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ModdingUtils.Extensions;
-using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
@@ -12,16 +11,14 @@ using UnityEngine;
 
 namespace FlairsCards.Cards
 {
-    class BattleAngel : CustomCard
+    class ExtendedMag : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            statModifiers.numberOfJumps += 1;
-            statModifiers.movementSpeed = 1.2f;
-            statModifiers.gravity = 0.7f;
-            gun.numberOfProjectiles += 2;
-            gun.spread = 1.05f;
+            gun.ammo = 10;
+            gun.attackSpeed = 1.1f;
+            gun.spread = 0.2f;
+            gun.damage = 0.9f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -33,11 +30,11 @@ namespace FlairsCards.Cards
         }
         protected override string GetTitle()
         {
-            return "Battle Angel";
+            return "Extended Mag";
         }
         protected override string GetDescription()
         {
-            return "Angelic";
+            return "";
         }
         protected override GameObject GetCardArt()
         {
@@ -45,7 +42,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return RarityUtils.GetRarity("Masterwork");
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -54,32 +51,32 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Jumps",
-                    amount = "+1",
+                    stat = "Ammo",
+                    amount = "+10",
+                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Attack Speed",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Speed",
+                    positive = false,
+                    stat = "Spread",
                     amount = "+20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Projectiles",
-                    amount = "+2",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    positive = false,
+                    stat = "Damage",
+                    amount = "-10%",
+                    simepleAmount = CardInfoStat.SimpleAmount.slightlyLower
                 },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Gravity",
-                    amount = "-30%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLotLower
-                },
-            }; 
+            };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {

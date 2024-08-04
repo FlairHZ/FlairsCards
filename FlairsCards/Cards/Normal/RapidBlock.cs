@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace FlairsCards.Cards
 {
-    class MultiBlock : CustomCard
+    class RapidBlock : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {

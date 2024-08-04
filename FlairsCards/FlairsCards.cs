@@ -47,8 +47,8 @@ namespace FlairsCards
             CustomCard.BuildCard<HeavenlyDraw>();
             CustomCard.BuildCard<ImmovableWall>();
             CustomCard.BuildCard<LevitatingBullets>();
-            CustomCard.BuildCard<MultiBlock>();
             CustomCard.BuildCard<PrecisionShot>();
+            CustomCard.BuildCard<RapidBlock>();
             CustomCard.BuildCard<SwiftKicks>();
             CustomCard.BuildCard<TankShredder>();
             CustomCard.BuildCard<Weightless>();

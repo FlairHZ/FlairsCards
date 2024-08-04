@@ -17,11 +17,10 @@ namespace FlairsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            statModifiers.numberOfJumps += 1;
+            statModifiers.numberOfJumps = 1;
             statModifiers.movementSpeed = 1.2f;
             statModifiers.gravity = 0.7f;
-            gun.numberOfProjectiles += 2;
-            gun.spread = 1.05f;
+            gun.numberOfProjectiles = 2;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {

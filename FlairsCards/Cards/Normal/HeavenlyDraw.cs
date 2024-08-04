@@ -18,9 +18,13 @@ namespace FlairsCards.Cards
 {
     class HeavenlyDraw : CustomCard
     {
+        CardInfo chosenCard;
+
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             ModdingUtils.Extensions.CardInfoExtension.GetAdditionalData(cardInfo).canBeReassigned = false;
+            cardInfo.categories = new CardCategory[] { CardChoiceSpawnUniqueCardPatch.CustomCategories.CustomCardCategories.instance.CardCategory("CardGamba") };
+            chosenCard = cardInfo;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -30,6 +34,7 @@ namespace FlairsCards.Cards
             CurseManager.instance.CursePlayer(player, (curse) => {
                 ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse, 3f);
             });
+            ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, chosenCard, ModdingUtils.Utils.Cards.SelectionType.Newest);
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -67,7 +72,7 @@ namespace FlairsCards.Cards
         }
         private bool DrawCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity != CardInfo.Rarity.Common && card.cardName != "HeavenlyDraw" && card.rarity != CardInfo.Rarity.Uncommon && card.rarity != CardInfo.Rarity.Rare;
+            return card.rarity != CardInfo.Rarity.Common && card.rarity != CardInfo.Rarity.Uncommon && card.rarity != CardInfo.Rarity.Rare && card.cardName != "Heavenly Draw";
         }
     }
 }

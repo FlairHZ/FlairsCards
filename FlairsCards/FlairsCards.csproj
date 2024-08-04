@@ -69,10 +69,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cards\Curses\BattleScarred.cs" />
     <Compile Include="Cards\Curses\BlindingSpeed.cs" />
     <Compile Include="Cards\Curses\BucklingPressure.cs" />
     <Compile Include="Cards\Normal\CursedDraw.cs" />
-    <Compile Include="Cards\Normal\MultiBlock.cs" />
+    <Compile Include="Cards\Normal\RapidBlock.cs" />
     <Compile Include="Cards\Normal\Cannonball.cs" />
     <Compile Include="Cards\Normal\EvasiveManuvers.cs" />
     <Compile Include="Cards\Normal\BattleAngel.cs" />

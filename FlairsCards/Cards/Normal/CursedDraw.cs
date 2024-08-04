@@ -73,7 +73,7 @@ namespace FlairsCards.Cards
         }
         private bool CommonCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == CardInfo.Rarity.Common && card.name != "Cursed Draw";
+            return card.rarity == CardInfo.Rarity.Common && card.cardName != "Cursed Draw";
         }
     }
 }

@@ -7,31 +7,34 @@ using ModdingUtils.Extensions;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
+using WillsWackyManagers.Utils;
 
 
 namespace FlairsCards.Cards
 {
-    class AntiGravity : CustomCard
+    class BattleScarred : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.health = 0.9f;
+            gun.damage = 0.7f;
+            gun.projectileSpeed = 0.7f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            player.data.jumps = 1;
+
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //
+
         }
+
         protected override string GetTitle()
         {
-            return "Anti Gravity";
+            return "Battle Scarred";
         }
         protected override string GetDescription()
         {
-            return "Get an additional jump";
+            return "Let's go gambling";
         }
         protected override GameObject GetCardArt()
         {
@@ -39,7 +42,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -47,23 +50,23 @@ namespace FlairsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Jumps",
-                    amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
+                    positive = false,
+                    stat = "Speed",
+                    amount = "-40%",
+                    simepleAmount = CardInfoStat.SimpleAmount.lower
                 },
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Health",
-                    amount = "-10%",
-                    simepleAmount = CardInfoStat.SimpleAmount.slightlyLower
-                },
+                    stat = "Gravity",
+                    amount = "+40%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.TechWhite;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

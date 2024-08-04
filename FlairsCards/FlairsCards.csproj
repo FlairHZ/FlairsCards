@@ -64,25 +64,36 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="WillsWackyManagers">
+      <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\Testing\BepInEx\plugins\willuwontu-WillsWackyManagers\WillsWackyManagers.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cards\MultiBlock.cs" />
-    <Compile Include="Cards\Cannonball.cs" />
-    <Compile Include="Cards\EvasiveManuvers.cs" />
-    <Compile Include="Cards\BattleAngel.cs" />
-    <Compile Include="Cards\ExtendedMag.cs" />
-    <Compile Include="Cards\ImmovableWall.cs" />
-    <Compile Include="Cards\LevitatingBullets.cs" />
-    <Compile Include="Cards\PrecisionShot.cs" />
-    <Compile Include="Cards\SwiftKicks.cs" />
-    <Compile Include="Cards\AntiBlock.cs" />
-    <Compile Include="Cards\TankShredder.cs" />
-    <Compile Include="Cards\CripplingBullets.cs" />
-    <Compile Include="Cards\AllOrNothing.cs" />
-    <Compile Include="Cards\Weightless.cs" />
+    <Compile Include="Cards\Curses\BlindingSpeed.cs" />
+    <Compile Include="Cards\Curses\BucklingPressure.cs" />
+    <Compile Include="Cards\Normal\CursedDraw.cs" />
+    <Compile Include="Cards\Normal\MultiBlock.cs" />
+    <Compile Include="Cards\Normal\Cannonball.cs" />
+    <Compile Include="Cards\Normal\EvasiveManuvers.cs" />
+    <Compile Include="Cards\Normal\BattleAngel.cs" />
+    <Compile Include="Cards\Normal\ExtendedMag.cs" />
+    <Compile Include="Cards\Normal\ImmovableWall.cs" />
+    <Compile Include="Cards\Normal\LevitatingBullets.cs" />
+    <Compile Include="Cards\Normal\PrecisionShot.cs" />
+    <Compile Include="Cards\Normal\SwiftKicks.cs" />
+    <Compile Include="Cards\Normal\AntiBlock.cs" />
+    <Compile Include="Cards\Normal\TankShredder.cs" />
+    <Compile Include="Cards\Normal\CripplingBullets.cs" />
+    <Compile Include="Cards\Normal\AllOrNothing.cs" />
+    <Compile Include="Cards\Normal\Template.cs" />
+    <Compile Include="Cards\Normal\Weightless.cs" />
+    <Compile Include="Cards\Normal\HeavenlyDraw.cs" />
     <Compile Include="FlairsCards.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Cards\AntiGravity.cs" />
+    <Compile Include="Cards\Normal\AntiGravity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Cards\Testing\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

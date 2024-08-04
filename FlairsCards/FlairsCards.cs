@@ -5,6 +5,7 @@ using FlairsCards.Cards;
 using HarmonyLib;
 using RarityLib.Utils;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using WillsWackyManagers.Utils;
 using UnityEngine;
 
 
@@ -40,8 +41,10 @@ namespace FlairsCards
             CustomCard.BuildCard<BattleAngel>();
             CustomCard.BuildCard<Cannonball>();
             CustomCard.BuildCard<CripplingBullets>();
+            CustomCard.BuildCard<CursedDraw>();
             CustomCard.BuildCard<EvasiveManuvers>();
             CustomCard.BuildCard<ExtendedMag>();
+            CustomCard.BuildCard<HeavenlyDraw>();
             CustomCard.BuildCard<ImmovableWall>();
             CustomCard.BuildCard<LevitatingBullets>();
             CustomCard.BuildCard<MultiBlock>();
@@ -49,6 +52,10 @@ namespace FlairsCards
             CustomCard.BuildCard<SwiftKicks>();
             CustomCard.BuildCard<TankShredder>();
             CustomCard.BuildCard<Weightless>();
+
+            CustomCard.BuildCard<BlindingSpeed>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+            CustomCard.BuildCard<BucklingPressure>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+
             instance = this;
         }
     }

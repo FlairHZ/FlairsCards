@@ -53,6 +53,7 @@ namespace FlairsCards
             CustomCard.BuildCard<TankShredder>();
             CustomCard.BuildCard<Weightless>();
 
+            CustomCard.BuildCard<BattleScarred>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<BlindingSpeed>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<BucklingPressure>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
 

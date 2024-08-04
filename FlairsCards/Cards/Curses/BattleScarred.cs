@@ -51,15 +51,15 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Speed",
-                    amount = "-40%",
+                    stat = "Projectile Speed",
+                    amount = "-30%",
                     simepleAmount = CardInfoStat.SimpleAmount.lower
                 },
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Gravity",
-                    amount = "+40%",
+                    stat = "Damage",
+                    amount = "-30%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 }
             };

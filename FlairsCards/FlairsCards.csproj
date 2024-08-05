@@ -75,10 +75,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cards\Acc\TempAccursed.cs" />
-    <Compile Include="Cards\Acc\TempAccursedClass.cs" />
-    <Compile Include="Cards\Acc\TempCursedDraw.cs" />
-    <Compile Include="Cards\Acc\TempUnluckySouls.cs" />
+    <Compile Include="Cards\Accursed\Accursed.cs" />
+    <Compile Include="Cards\Accursed\AccursedClass.cs" />
+    <Compile Include="Cards\Accursed\CursedDraw.cs" />
+    <Compile Include="Cards\Accursed\UnluckySouls.cs" />
     <Compile Include="Cards\Speedster\Adrenaline.cs" />
     <Compile Include="Cards\Speedster\EnergyConverter.cs" />
     <Compile Include="Cards\Speedster\EnergyDrink.cs" />

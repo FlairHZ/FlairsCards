@@ -7,6 +7,6 @@ namespace FlairsCards
     public static class Config
     {
         // Remember to set this to false in a release version!
-        public const bool isDebugBuild = false;
+        public const bool isDebugBuild = true;
     }
 }

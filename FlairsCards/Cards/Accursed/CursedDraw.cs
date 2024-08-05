@@ -11,13 +11,13 @@ using WillsWackyManagers.Utils;
 
 namespace FlairsCards.Cards
 {
-    class TempCursedDraw : CustomCard
+    class CursedDraw : CustomCard
     {
         CardInfo chosenCard;
         internal static CardInfo Card = null;
         public override void Callback()
         {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = TempAccursedClass.name;
+            gameObject.GetOrAddComponent<ClassNameMono>().className = AccursedClass.name;
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {

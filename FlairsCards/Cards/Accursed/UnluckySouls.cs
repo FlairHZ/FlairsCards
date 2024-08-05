@@ -3,44 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FlairsCards.Cards;
 using ClassesManagerReborn.Util;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
 using WillsWackyManagers.Utils;
 
-
 namespace FlairsCards.Cards
 {
-    class TempAccursed : CustomCard
+    class UnluckySouls : CustomCard
     {
+        CardInfo chosenCard;
         internal static CardInfo Card = null;
         public override void Callback()
         {
-            gameObject.GetOrAddComponent<ClassNameMono>();
+            gameObject.GetOrAddComponent<ClassNameMono>().className = AccursedClass.name;
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            statModifiers.movementSpeed = 1.2f;
-            gun.damage = 1.8f;
+            chosenCard = cardInfo;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse); });
+            var randomPlayer = UnityEngine.Random.Range(0, PlayerManager.instance.players.Count);
+            var randomPlayer2 = UnityEngine.Random.Range(0, PlayerManager.instance.players.Count);
+            var chosenPlayer = PlayerManager.instance.players[randomPlayer];
+            var chosenPlayer2 = PlayerManager.instance.players[randomPlayer];
+            CurseManager.instance.CursePlayer(chosenPlayer, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer, curse); });
+            CurseManager.instance.CursePlayer(chosenPlayer2, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer2, curse); });
+
+            ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, chosenCard, ModdingUtils.Utils.Cards.SelectionType.Newest);
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //
+
         }
+
         protected override string GetTitle()
         {
-            return "Accursed";
+            return "Unlucky Souls";
         }
         protected override string GetDescription()
         {
-            return "Learn to grow stronger with the curses inflicted upon you";
+            return "Choose two random players to get a curse, including you";
         }
         protected override GameObject GetCardArt()
         {
@@ -48,7 +53,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -56,30 +61,12 @@ namespace FlairsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Speed",
-                    amount = "+20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
-                },
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Damage",
-                    amount = "+80%",
-                    simepleAmount = CardInfoStat.SimpleAmount.lower
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Curse",
-                    amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.lower
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.PoisonGreen;
+            return CardThemeColor.CardThemeColorType.EvilPurple;
         }
         public override string GetModName()
         {

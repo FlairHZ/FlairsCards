@@ -59,7 +59,7 @@ namespace FlairsCards
             //CustomCard.BuildCard<Immunity>();
 
             //Accursed Class
-            CustomCard.BuildCard<TempAccursed>((card) => TempAccursed.Card = card);
+            CustomCard.BuildCard<Accursed>((card) => Accursed.Card = card);
             CustomCard.BuildCard<CursedDraw>((card) => CursedDraw.Card = card);
             CustomCard.BuildCard<UnluckySouls>((card) => UnluckySouls.Card = card);
 

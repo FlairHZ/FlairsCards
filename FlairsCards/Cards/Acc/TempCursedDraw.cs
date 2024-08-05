@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using ModdingUtils.Extensions;
+using ClassesManagerReborn.Util;
 using UnboundLib;
 using UnboundLib.Cards;
-using UnboundLib.Utils;
 using UnityEngine;
 using WillsWackyManagers.Utils;
 
-
 namespace FlairsCards.Cards
 {
-    class CursedDraw : CustomCard
+    class TempCursedDraw : CustomCard
     {
         CardInfo chosenCard;
+        internal static CardInfo Card = null;
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = TempAccursedClass.name;
+        }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            ModdingUtils.Extensions.CardInfoExtension.GetAdditionalData(cardInfo).canBeReassigned = false;
-            cardInfo.categories = new CardCategory[] { CardChoiceSpawnUniqueCardPatch.CustomCategories.CustomCardCategories.instance.CardCategory("CardGamba") };
+            cardInfo.allowMultiple = false;
             chosenCard = cardInfo;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -65,7 +65,7 @@ namespace FlairsCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.TechWhite;
         }
         public override string GetModName()
         {

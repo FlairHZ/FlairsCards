@@ -10,6 +10,8 @@ using UnboundLib;
 using UnboundLib.Cards;
 using UnboundLib.Utils;
 using UnityEngine;
+using WillsWackyManagers;
+using WillsWackyManagers.Utils;
 
 
 namespace FlairsCards.Cards
@@ -20,6 +22,7 @@ namespace FlairsCards.Cards
         CardInfo chosenCard;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            cardInfo.allowMultiple = false;
             ModdingUtils.Extensions.CardInfoExtension.GetAdditionalData(cardInfo).canBeReassigned = false;
             cardInfo.categories = new CardCategory[] { CardChoiceSpawnUniqueCardPatch.CustomCategories.CustomCardCategories.instance.CardCategory("CardGamba") };
             chosenCard = cardInfo; 
@@ -35,7 +38,7 @@ namespace FlairsCards.Cards
             }
 
             ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomDraw, addToCardBar: true);
-            ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomDraw);
+            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, randomDraw, 0f);
             ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, chosenCard, ModdingUtils.Utils.Cards.SelectionType.Newest);
     }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -66,7 +69,7 @@ namespace FlairsCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.TechWhite;
         }
 
         public bool condition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

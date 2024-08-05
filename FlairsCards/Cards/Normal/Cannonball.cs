@@ -15,9 +15,9 @@ namespace FlairsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.projectileSize = 1.5f;
-            gun.damage = 1.5f;
-            gun.projectileSpeed = 0.5f;
+            gun.projectileSize = 1.4f;
+            gun.damage = 1.4f;
+            gun.projectileSpeed = 0.6f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -51,28 +51,28 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+50%",
+                    amount = "+40%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Projectile Size",
-                    amount = "+50%",
+                    amount = "+40%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Projectile Speed",
-                    amount = "-50%",
+                    amount = "-40%",
                     simepleAmount = CardInfoStat.SimpleAmount.smaller
                 },
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.TechWhite;
+            return CardThemeColor.CardThemeColorType.DefensiveBlue;
         }
         public override string GetModName()
         {

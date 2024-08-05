@@ -7,17 +7,17 @@ using RarityLib.Utils;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using WillsWackyManagers.Utils;
 using UnityEngine;
+using ClassesManagerReborn.Util;
+using ClassesManagerReborn;
 
 
 namespace FlairsCards
 {
-    // These are the mods required for our mod to work
     [BepInDependency("com.willis.rounds.unbound", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.moddingutils", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.cardchoicespawnuniquecardpatch", BepInDependency.DependencyFlags.HardDependency)]
-    // Declares our mod to Bepin
+    [BepInDependency("root.classes.manager.reborn", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin(ModId, ModName, Version)]
-    // The game our mod is associated with
     [BepInProcess("Rounds.exe")]
     public class FlairsCards : BaseUnityPlugin
     {
@@ -25,6 +25,8 @@ namespace FlairsCards
         private const string ModName = "Flairs Cards";
         public const string Version = "1.0.0"; // What version are we on (major.minor.patch)?
         public const string ModInitials = "FC";
+        public const string CursedModInitials = "FC Curse";
+
         public static FlairsCards instance { get; private set; }
 
         void Awake()
@@ -41,23 +43,44 @@ namespace FlairsCards
             CustomCard.BuildCard<BattleAngel>();
             CustomCard.BuildCard<Cannonball>();
             CustomCard.BuildCard<CripplingBullets>();
-            CustomCard.BuildCard<CursedDraw>();
             CustomCard.BuildCard<EvasiveManuvers>();
             CustomCard.BuildCard<ExtendedMag>();
             CustomCard.BuildCard<HeavenlyDraw>();
             CustomCard.BuildCard<ImmovableWall>();
             CustomCard.BuildCard<LevitatingBullets>();
             CustomCard.BuildCard<PrecisionShot>();
+            CustomCard.BuildCard<RandomBuff>();
             CustomCard.BuildCard<RapidBlock>();
-            CustomCard.BuildCard<SwiftKicks>();
             CustomCard.BuildCard<TankShredder>();
+            CustomCard.BuildCard<Trickshot>();
             CustomCard.BuildCard<Weightless>();
+
+            //CustomCard.BuildCard<MagicBullet>();
+            //CustomCard.BuildCard<Immunity>();
+
+            //Accursed Class
+            CustomCard.BuildCard<TempAccursed>((card) => TempAccursed.Card = card);
+            CustomCard.BuildCard<CursedDraw>((card) => CursedDraw.Card = card);
+            CustomCard.BuildCard<UnluckySouls>((card) => UnluckySouls.Card = card);
+
+            //Speedster Class
+            CustomCard.BuildCard<Speedster>((card) => Speedster.Card = card);
+            CustomCard.BuildCard<Adrenaline>((card) => Adrenaline.Card = card);
+            CustomCard.BuildCard<EnergyDrink>((card) => EnergyDrink.Card = card);
+            CustomCard.BuildCard<SupersonicCannon>((card) => SupersonicCannon.Card = card);
+            CustomCard.BuildCard<EnergyConverter>((card) => EnergyConverter.Card = card);
 
             CustomCard.BuildCard<BattleScarred>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<BlindingSpeed>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<BucklingPressure>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+            CustomCard.BuildCard<ClumsyFingers>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+            CustomCard.BuildCard<Diseased>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+            CustomCard.BuildCard<FracturedShield>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+            CustomCard.BuildCard<RandomDebuff>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
+            CustomCard.BuildCard<WeakenedWill>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
 
             instance = this;
+
         }
     }
 }

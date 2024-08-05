@@ -7,32 +7,34 @@ using ModdingUtils.Extensions;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
+using PSA.Extensions;
+using WillsWackyManagers.Utils;
 
 
 namespace FlairsCards.Cards
 {
-    class AntiBlock : CustomCard
+    class Diseased : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            gun.damage = 2.5f;
+            cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = false;
+            PSA.Extensions.CharacterStatModifiersExtension.GetAdditionalData(characterStats).damageMult += 0.3f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = true;
+
         }
+
         protected override string GetTitle()
         {
-            return "Anti Block";
+            return "Diseased";
         }
         protected override string GetDescription()
         {
-            return "Blocking is overrated";
+            return "Sickness leaves you weak";
         }
         protected override GameObject GetCardArt()
         {
@@ -40,7 +42,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -48,27 +50,20 @@ namespace FlairsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Damage",
-                    amount = "+150%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
-                },
-                new CardInfoStat()
-                {
                     positive = false,
-                    stat = "Blocks",
-                    amount = "Disable",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+                    stat = "Damage Taken",
+                    amount = "+30%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DestructiveRed;
+            return CardThemeColor.CardThemeColorType.EvilPurple;
         }
         public override string GetModName()
         {
-            return FlairsCards.ModInitials;
+            return FlairsCards.CursedModInitials;
         }
     }
 }

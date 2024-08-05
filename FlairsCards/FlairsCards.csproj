@@ -46,8 +46,14 @@
     <Reference Include="CardChoiceSpawnUniqueCardPatch">
       <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\Testing\BepInEx\plugins\Pykess-CardChoiceSpawnUniqueCardPatch\CardChoiceSpawnUniqueCardPatch.dll</HintPath>
     </Reference>
+    <Reference Include="ClassesManagerReborn">
+      <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\Testing\BepInEx\plugins\Root-Classes_Manager_Reborn\ClassesManagerReborn.dll</HintPath>
+    </Reference>
     <Reference Include="ModdingUtils">
       <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\Testing\BepInEx\plugins\Pykess-ModdingUtils\ModdingUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="PSA">
+      <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\Testing\BepInEx\plugins\poppycars-PoppycarsStatAdditions\PSA.dll</HintPath>
     </Reference>
     <Reference Include="RarityLib">
       <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\Testing\BepInEx\plugins\Root-RarityLib\RarityLib.dll</HintPath>
@@ -69,10 +75,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cards\Acc\TempAccursed.cs" />
+    <Compile Include="Cards\Acc\TempAccursedClass.cs" />
+    <Compile Include="Cards\Acc\TempCursedDraw.cs" />
+    <Compile Include="Cards\Acc\TempUnluckySouls.cs" />
+    <Compile Include="Cards\Speedster\Adrenaline.cs" />
+    <Compile Include="Cards\Speedster\EnergyConverter.cs" />
+    <Compile Include="Cards\Speedster\EnergyDrink.cs" />
+    <Compile Include="Cards\Speedster\SpeedsterClass.cs" />
     <Compile Include="Cards\Curses\BattleScarred.cs" />
     <Compile Include="Cards\Curses\BlindingSpeed.cs" />
     <Compile Include="Cards\Curses\BucklingPressure.cs" />
-    <Compile Include="Cards\Normal\CursedDraw.cs" />
+    <Compile Include="Cards\Curses\ClumsyFingers.cs" />
+    <Compile Include="Cards\Curses\FracturedShield.cs" />
+    <Compile Include="Cards\Curses\Diseased.cs" />
+    <Compile Include="Cards\Curses\RandomDebuff.cs" />
+    <Compile Include="Cards\Curses\WeakenedWill.cs" />
+    <Compile Include="Cards\Normal\Trickshot.cs" />
+    <Compile Include="Cards\Speedster\SupersonicCannon.cs" />
+    <Compile Include="Cards\Testing\MagicBullet.cs" />
+    <Compile Include="Cards\Normal\RandomBuff.cs" />
     <Compile Include="Cards\Normal\RapidBlock.cs" />
     <Compile Include="Cards\Normal\Cannonball.cs" />
     <Compile Include="Cards\Normal\EvasiveManuvers.cs" />
@@ -81,20 +103,21 @@
     <Compile Include="Cards\Normal\ImmovableWall.cs" />
     <Compile Include="Cards\Normal\LevitatingBullets.cs" />
     <Compile Include="Cards\Normal\PrecisionShot.cs" />
-    <Compile Include="Cards\Normal\SwiftKicks.cs" />
+    <Compile Include="Cards\Speedster\Speedster.cs" />
     <Compile Include="Cards\Normal\AntiBlock.cs" />
     <Compile Include="Cards\Normal\TankShredder.cs" />
     <Compile Include="Cards\Normal\CripplingBullets.cs" />
     <Compile Include="Cards\Normal\AllOrNothing.cs" />
-    <Compile Include="Cards\Normal\Template.cs" />
+    <Compile Include="Cards\Testing\Immunity.cs" />
+    <Compile Include="Cards\Testing\Template.cs" />
     <Compile Include="Cards\Normal\Weightless.cs" />
     <Compile Include="Cards\Normal\HeavenlyDraw.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Utilities\FCDebug.cs" />
     <Compile Include="FlairsCards.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Cards\Normal\AntiGravity.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Cards\Testing\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

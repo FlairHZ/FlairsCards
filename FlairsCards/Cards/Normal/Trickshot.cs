@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModdingUtils.Extensions;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
@@ -10,28 +11,29 @@ using UnityEngine;
 
 namespace FlairsCards.Cards
 {
-    class SwiftKicks : CustomCard
+    class Trickshot : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.movementSpeed = 1.3f;
-            gun.damage = 0.8f;
+            gun.dmgMOnBounce = 1.2f;
+            gun.reflects = 2;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //
+
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //
+
         }
+
         protected override string GetTitle()
         {
-            return "Swift Kicks";
+            return "Trickshot";
         }
         protected override string GetDescription()
         {
-            return "Increased speed";
+            return "Damage increases per bounce";
         }
         protected override GameObject GetCardArt()
         {
@@ -39,7 +41,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -48,22 +50,22 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Speed",
-                    amount = "+30%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    stat = "Damage per bounce",
+                    amount = "+20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 },
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Damage",
-                    amount = "-20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.lower
+                    positive = true,
+                    stat = "Bounces",
+                    amount = "+2",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.PoisonGreen;
+            return CardThemeColor.CardThemeColorType.FirepowerYellow;
         }
         public override string GetModName()
         {

@@ -20,7 +20,7 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            characterStats.GetAdditionalData().gravityMultiplierOnDoDamage *= 2f;
+            characterStats.GetAdditionalData().gravityMultiplierOnDoDamage *= 8f;
             characterStats.GetAdditionalData().gravityDurationOnDoDamage += 2f;
             player.gameObject.GetOrAddComponent<GravityDealtDamageEffect>();
         }
@@ -66,7 +66,7 @@ namespace FlairsCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.TechWhite;
+            return CardThemeColor.CardThemeColorType.FirepowerYellow;
         }
         public override string GetModName()
         {

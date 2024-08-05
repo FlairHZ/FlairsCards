@@ -18,6 +18,7 @@ namespace FlairsCards.Cards
         {
             gun.damage = 0.7f;
             gun.projectileSpeed = 0.7f;
+            cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -66,11 +67,11 @@ namespace FlairsCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.ColdBlue;
+            return CardThemeColor.CardThemeColorType.EvilPurple;
         }
         public override string GetModName()
         {
-            return FlairsCards.ModInitials;
+            return FlairsCards.CursedModInitials;
         }
     }
 }

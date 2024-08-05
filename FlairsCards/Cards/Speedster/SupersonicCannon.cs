@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ModdingUtils.Extensions;
+using FlairsCards.Cards;
+using ClassesManagerReborn.Util;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
@@ -11,28 +12,34 @@ using UnityEngine;
 
 namespace FlairsCards.Cards
 {
-    class AntiBlock : CustomCard
+    class SupersonicCannon : CustomCard
     {
+        internal static CardInfo Card = null;
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = SpeedsterClass.name;
+        }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            gun.damage = 2.5f;
+            statModifiers.movementSpeed = 1.2f;
+            gun.projectileSpeed = 1.4f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = false;
+            //
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = true;
+            //
         }
         protected override string GetTitle()
         {
-            return "Anti Block";
+            return "Supersonic Cannon";
         }
         protected override string GetDescription()
         {
-            return "Blocking is overrated";
+            return "In the blink of an eye";
         }
         protected override GameObject GetCardArt()
         {
@@ -40,7 +47,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -49,22 +56,22 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage",
-                    amount = "+150%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
+                    stat = "Speed",
+                    amount = "+20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Blocks",
-                    amount = "Disable",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+                    positive = true,
+                    stat = "Projectile Speed",
+                    amount = "+40%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DestructiveRed;
+            return CardThemeColor.CardThemeColorType.PoisonGreen;
         }
         public override string GetModName()
         {

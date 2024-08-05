@@ -11,28 +11,46 @@ using UnityEngine;
 
 namespace FlairsCards.Cards
 {
-    class AntiBlock : CustomCard
+    class RandomBuff : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            gun.damage = 2.5f;
+            ModdingUtils.Extensions.CardInfoExtension.GetAdditionalData(cardInfo).canBeReassigned = false;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = false;
+            System.Random rnd = new System.Random();
+            int num = rnd.Next(1, 5);
+
+            if (num == 1)
+            {
+                gun.ammo = 3;
+            }
+            else if (num == 2)
+            {
+                gun.damage = 1.2f;
+            }
+            else if (num == 3)
+            {
+                statModifiers.movementSpeed = 1.2f;
+            }
+            else
+            {
+                statModifiers.gravity = 0.8f;
+            }
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = true;
+
         }
+
         protected override string GetTitle()
         {
-            return "Anti Block";
+            return "<color=#00ff00>?</color><color=#00ff00>?</color><color=#00ff00>?</color>";
         }
         protected override string GetDescription()
         {
-            return "Blocking is overrated";
+            return "";
         }
         protected override GameObject GetCardArt()
         {
@@ -49,22 +67,22 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage",
-                    amount = "+150%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
+                    stat = "???",
+                    amount = "b?ff",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
-                    positive = false,
-                    stat = "Blocks",
-                    amount = "Disable",
+                    positive = true,
+                    stat = "???",
+                    amount = "i??re?se",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DestructiveRed;
+            return CardThemeColor.CardThemeColorType.TechWhite;
         }
         public override string GetModName()
         {

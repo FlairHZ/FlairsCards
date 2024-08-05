@@ -11,28 +11,34 @@ using UnityEngine;
 
 namespace FlairsCards.Cards
 {
-    class AntiBlock : CustomCard
+    class MagicBullet : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            gun.damage = 2.5f;
+
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = false;
+            while (characterStats.health > 0)
+            {
+                if (gun.isReloading == true)
+                {
+                    gun.percentageDamage = 1f;
+                }
+            }
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = true;
+
         }
+
         protected override string GetTitle()
         {
-            return "Anti Block";
+            return "Magic Bullet";
         }
         protected override string GetDescription()
         {
-            return "Blocking is overrated";
+            return "Your first bullet after reloading is guaranteed to kill";
         }
         protected override GameObject GetCardArt()
         {
@@ -40,7 +46,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -48,23 +54,12 @@ namespace FlairsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Damage",
-                    amount = "+150%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Blocks",
-                    amount = "Disable",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DestructiveRed;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

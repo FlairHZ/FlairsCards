@@ -3,36 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ModdingUtils.Extensions;
+using ClassesManagerReborn.Util;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-
+using WillsWackyManagers.Utils;
 
 namespace FlairsCards.Cards
 {
-    class AntiBlock : CustomCard
+    class TempUnluckySouls : CustomCard
     {
+        CardInfo chosenCard;
+        internal static CardInfo Card = null;
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = TempAccursedClass.name;
+        }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            gun.damage = 2.5f;
+            chosenCard = cardInfo;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = false;
+            var randomPlayer = UnityEngine.Random.Range(0, PlayerManager.instance.players.Count);
+            var randomPlayer2 = UnityEngine.Random.Range(0, PlayerManager.instance.players.Count);
+            var chosenPlayer = PlayerManager.instance.players[randomPlayer];
+            var chosenPlayer2 = PlayerManager.instance.players[randomPlayer];
+            CurseManager.instance.CursePlayer(chosenPlayer, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer, curse); });
+            CurseManager.instance.CursePlayer(chosenPlayer2, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer2, curse); });
+
+            ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, chosenCard, ModdingUtils.Utils.Cards.SelectionType.Newest);
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = true;
+
         }
+
         protected override string GetTitle()
         {
-            return "Anti Block";
+            return "Unlucky Souls";
         }
         protected override string GetDescription()
         {
-            return "Blocking is overrated";
+            return "Choose two random players to get a curse, including you";
         }
         protected override GameObject GetCardArt()
         {
@@ -48,23 +61,12 @@ namespace FlairsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Damage",
-                    amount = "+150%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Blocks",
-                    amount = "Disable",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DestructiveRed;
+            return CardThemeColor.CardThemeColorType.EvilPurple;
         }
         public override string GetModName()
         {

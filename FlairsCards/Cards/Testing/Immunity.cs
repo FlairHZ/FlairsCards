@@ -6,33 +6,34 @@ using System.Threading.Tasks;
 using ModdingUtils.Extensions;
 using UnboundLib;
 using UnboundLib.Cards;
+using UnboundLib.Utils;
 using UnityEngine;
 
 
 namespace FlairsCards.Cards
 {
-    class AntiBlock : CustomCard
+    class Immunity : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            gun.damage = 2.5f;
+            ModdingUtils.Extensions.CardInfoExtension.GetAdditionalData(cardInfo).canBeReassigned = false;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = false;
+            
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.enabled = true;
+
         }
+
         protected override string GetTitle()
         {
-            return "Anti Block";
+            return "Immunity";
         }
         protected override string GetDescription()
         {
-            return "Blocking is overrated";
+            return "Negate any curse cards drawn after this card is drawn";
         }
         protected override GameObject GetCardArt()
         {
@@ -48,23 +49,12 @@ namespace FlairsCards.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Damage",
-                    amount = "+150%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Blocks",
-                    amount = "Disable",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DestructiveRed;
+            return CardThemeColor.CardThemeColorType.ColdBlue;
         }
         public override string GetModName()
         {

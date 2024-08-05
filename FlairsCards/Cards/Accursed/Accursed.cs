@@ -25,7 +25,6 @@ namespace FlairsCards.Cards
             cardInfo.allowMultiple = false;
             statModifiers.movementSpeed = 1.2f;
             gun.damage = 1.8f;
-            UnityEngine.Debug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} Built");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {

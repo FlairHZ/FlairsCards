@@ -63,6 +63,9 @@ namespace FlairsCards
             CustomCard.BuildCard<CursedDraw>((card) => CursedDraw.Card = card);
             CustomCard.BuildCard<UnluckySouls>((card) => UnluckySouls.Card = card);
 
+            //Royalty Class
+            CustomCard.BuildCard<Royalty>((card) => Royalty.Card = card);
+
             //Speedster Class
             CustomCard.BuildCard<Speedster>((card) => Speedster.Card = card);
             CustomCard.BuildCard<Adrenaline>((card) => Adrenaline.Card = card);

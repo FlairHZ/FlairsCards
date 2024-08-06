@@ -79,6 +79,9 @@
     <Compile Include="Cards\Accursed\AccursedClass.cs" />
     <Compile Include="Cards\Accursed\CursedDraw.cs" />
     <Compile Include="Cards\Accursed\UnluckySouls.cs" />
+    <Compile Include="Cards\Block\BlockClass.cs" />
+    <Compile Include="Cards\Gambler\GamblerClass.cs" />
+    <Compile Include="Cards\Gambler\Wildcard.cs" />
     <Compile Include="Cards\Speedster\Adrenaline.cs" />
     <Compile Include="Cards\Speedster\EnergyConverter.cs" />
     <Compile Include="Cards\Speedster\EnergyDrink.cs" />
@@ -93,6 +96,8 @@
     <Compile Include="Cards\Curses\WeakenedWill.cs" />
     <Compile Include="Cards\Normal\Trickshot.cs" />
     <Compile Include="Cards\Speedster\SupersonicCannon.cs" />
+    <Compile Include="Cards\Royalty\Royalty.cs" />
+    <Compile Include="Cards\Royalty\RoyaltyClass.cs" />
     <Compile Include="Cards\Testing\MagicBullet.cs" />
     <Compile Include="Cards\Normal\RandomBuff.cs" />
     <Compile Include="Cards\Normal\RapidBlock.cs" />
@@ -113,6 +118,7 @@
     <Compile Include="Cards\Normal\Weightless.cs" />
     <Compile Include="Cards\Normal\HeavenlyDraw.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="MonoBehaviours\RoyaltyMono.cs" />
     <Compile Include="Utilities\FCDebug.cs" />
     <Compile Include="FlairsCards.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

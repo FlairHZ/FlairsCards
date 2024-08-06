@@ -58,6 +58,7 @@ namespace FlairsCards
             //Accursed Class
             CustomCard.BuildCard<Accursed>((card) => Accursed.Card = card);
             CustomCard.BuildCard<CursedDraw>((card) => CursedDraw.Card = card);
+            CustomCard.BuildCard<FallenAngel>((card) => FallenAngel.Card = card);
             CustomCard.BuildCard<Plaguebearer>((card) => Plaguebearer.Card = card);
             CustomCard.BuildCard<Sadistic>((card) => Sadistic.Card = card);
             CustomCard.BuildCard<UnholyCurse>((card) => UnholyCurse.Card = card);

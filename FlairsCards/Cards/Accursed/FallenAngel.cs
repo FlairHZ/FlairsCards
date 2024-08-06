@@ -26,11 +26,11 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            player.gameObject.GetOrAddComponent<UnholyCurseMono>();
+            player.gameObject.GetOrAddComponent<FallenAngelMono>();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            Destroy(player.gameObject.GetOrAddComponent<UnholyCurseMono>());
+            Destroy(player.gameObject.GetOrAddComponent<FallenAngelMono>());
 
         }
 

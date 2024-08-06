@@ -12,25 +12,18 @@ namespace FlairsCards.MonoBehaviours
 {
     class RoyaltyMono : ReversibleEffect, IPointStartHookHandler, IPointEndHookHandler
     {
-        private CharacterData data;
-        private Player player;
-        private Gun gun;
-        private WeaponHandler weaponHandler;
-        private float totalPoints;
+        private float totalPoints = 3;
         private List<TeamScore> currentScore = new List<TeamScore>();
+        public void OnGameStart()
+        {
+            UnityEngine.GameObject.Destroy(this);
+        }
         public override void OnStart()
         {
             InterfaceGameModeHooksManager.instance.RegisterHooks(this);
-            data = GetComponentInParent<CharacterData>();
-            player = data.player;
-            weaponHandler = data.weaponHandler;
-            gun = weaponHandler.gun;
+            applyImmediately = false;
+            this.SetLivesToEffect(int.MaxValue);
         }
-
-        /*public void OnGameStart()
-        {
-            UnityEngine.GameObject.Destroy(this.gameObject);
-        }*/
 
         public void OnPointStart()
         {
@@ -50,14 +43,13 @@ namespace FlairsCards.MonoBehaviours
         {
             currentScore.Clear();
             currentScore = PlayerManager.instance.players.Select(p => p.teamID).Distinct().Select(ID => GameModeManager.CurrentHandler.GetTeamScore(ID)).ToList();
-            totalPoints = 0;
 
             foreach (var score in currentScore)
             {
-                totalPoints += score.points;
+                totalPoints += score.rounds;
             }
 
-            this.gun.damage = (float)(totalPoints * 2);
+            this.gunStatModifier.damage_add = totalPoints;
         }
     }
 }

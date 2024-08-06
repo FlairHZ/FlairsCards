@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassesManagerReborn.Util;
+using FC.Extensions;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
@@ -36,6 +37,7 @@ namespace FlairsCards.Cards
                 ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse, 3f);
             });
             ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, chosenCard, ModdingUtils.Utils.Cards.SelectionType.Newest);
+            player.data.stats.GetAdditionalData().curses += 1;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {

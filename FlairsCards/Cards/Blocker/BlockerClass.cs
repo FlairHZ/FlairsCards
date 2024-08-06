@@ -9,9 +9,9 @@ using FlairsCards.Cards;
 
 namespace FlairsCards.Cards
 {
-    class BlockClass : ClassHandler
+    class BlockerClass : ClassHandler
     {
-        internal static string name = "Accursed";
+        internal static string name = "Blocker";
 
         public override IEnumerator Init()
         {

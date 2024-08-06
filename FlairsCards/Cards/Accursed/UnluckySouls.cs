@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassesManagerReborn.Util;
+using FC.Extensions;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
@@ -31,6 +32,9 @@ namespace FlairsCards.Cards
             var chosenPlayer2 = PlayerManager.instance.players[randomPlayer];
             CurseManager.instance.CursePlayer(chosenPlayer, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer, curse); });
             CurseManager.instance.CursePlayer(chosenPlayer2, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer2, curse); });
+
+            chosenPlayer.data.stats.GetAdditionalData().curses += 1;
+            chosenPlayer2.data.stats.GetAdditionalData().curses += 1;
 
             ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, chosenCard, ModdingUtils.Utils.Cards.SelectionType.Newest);
         }

@@ -15,10 +15,12 @@ namespace FlairsCards.Cards
 
         public override IEnumerator Init()
         {
-            while (!(Accursed.Card && UnluckySouls.Card && CursedDraw.Card)) yield return null;
+            while (!(Accursed.Card && UnluckySouls.Card && CursedDraw.Card && UnholyCurse.Card)) yield return null;
             ClassesRegistry.Register(Accursed.Card, CardType.Entry);
             ClassesRegistry.Register(CursedDraw.Card, CardType.Card, Accursed.Card);
+            ClassesRegistry.Register(UnholyCurse.Card, CardType.Card, Accursed.Card);
             ClassesRegistry.Register(UnluckySouls.Card, CardType.Gate, Accursed.Card);
+            ClassesRegistry.Register(Sadist.Card, CardType.Gate, Accursed.Card);
         }
         public override IEnumerator PostInit()
         {

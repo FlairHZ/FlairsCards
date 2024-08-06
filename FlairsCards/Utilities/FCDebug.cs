@@ -11,7 +11,7 @@ namespace FlairsCards.Utilities
         {
             if (Config.isDebugBuild)
             {
-                UnityEngine.Debug.Log(message);
+                //UnityEngine.Debug.Log(message);
             }
 
         }

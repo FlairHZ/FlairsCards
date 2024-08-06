@@ -78,10 +78,12 @@
     <Compile Include="Cards\Accursed\Accursed.cs" />
     <Compile Include="Cards\Accursed\AccursedClass.cs" />
     <Compile Include="Cards\Accursed\CursedDraw.cs" />
+    <Compile Include="Cards\Accursed\Sadist.cs" />
+    <Compile Include="Cards\Accursed\UnholyCurse.cs" />
     <Compile Include="Cards\Accursed\UnluckySouls.cs" />
-    <Compile Include="Cards\Block\BlockClass.cs" />
+    <Compile Include="Cards\Blocker\BlockerClass.cs" />
+    <Compile Include="Extensions\CharacterStatModifiers.cs" />
     <Compile Include="Cards\Gambler\GamblerClass.cs" />
-    <Compile Include="Cards\Gambler\Wildcard.cs" />
     <Compile Include="Cards\Speedster\Adrenaline.cs" />
     <Compile Include="Cards\Speedster\EnergyConverter.cs" />
     <Compile Include="Cards\Speedster\EnergyDrink.cs" />
@@ -119,6 +121,8 @@
     <Compile Include="Cards\Normal\HeavenlyDraw.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="MonoBehaviours\RoyaltyMono.cs" />
+    <Compile Include="MonoBehaviours\SadistMono.cs" />
+    <Compile Include="MonoBehaviours\UnluckyMono.cs" />
     <Compile Include="Utilities\FCDebug.cs" />
     <Compile Include="FlairsCards.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

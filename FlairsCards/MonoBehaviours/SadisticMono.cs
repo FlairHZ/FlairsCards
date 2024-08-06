@@ -4,10 +4,11 @@ using System.Collections;
 using ModdingUtils.MonoBehaviours;
 using WillsWackyManagers.Utils;
 using FC.Extensions;
+using ModdingUtils.GameModes;
 
 namespace FlairsCards.MonoBehaviours
 {
-    class UnluckyMono : MonoBehaviour
+    class SadisticMono : MonoBehaviour
     {
         private Player player;
         private void Start()
@@ -23,8 +24,7 @@ namespace FlairsCards.MonoBehaviours
 
         IEnumerator PickEnd(IGameModeHandler gm)
         {
-            CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse); });
-            player.data.stats.GetAdditionalData().curses += 1;
+            player.data.stats.movementSpeed = (float)(1.0 + (player.data.stats.GetAdditionalData().curses * 0.2));
 
             yield break;
         }

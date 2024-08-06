@@ -22,19 +22,17 @@ namespace FlairsCards.Cards
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            cardInfo.allowMultiple = false;
             chosenCard = cardInfo;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var randomPlayer = UnityEngine.Random.Range(0, PlayerManager.instance.players.Count);
-            var randomPlayer2 = UnityEngine.Random.Range(0, PlayerManager.instance.players.Count);
-            var chosenPlayer = PlayerManager.instance.players[randomPlayer];
-            var chosenPlayer2 = PlayerManager.instance.players[randomPlayer];
-            CurseManager.instance.CursePlayer(chosenPlayer, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer, curse); });
-            CurseManager.instance.CursePlayer(chosenPlayer2, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer2, curse); });
-
-            chosenPlayer.data.stats.GetAdditionalData().curses += 1;
-            chosenPlayer2.data.stats.GetAdditionalData().curses += 1;
+            for (int i = 0; i <= 1; i++)
+            {
+                var randomPlayer = UnityEngine.Random.Range(0, PlayerManager.instance.players.Count);
+                var chosenPlayer = PlayerManager.instance.players[randomPlayer];
+                CurseManager.instance.CursePlayer(chosenPlayer, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer, curse); });
+            }
 
             ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, chosenCard, ModdingUtils.Utils.Cards.SelectionType.Newest);
         }

@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace FlairsCards.Cards
 {
-    class Sadist : CustomCard
+    class FallenAngel : CustomCard
     {
         internal static CardInfo Card = null;
         public override void Callback()
@@ -26,20 +26,21 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            player.gameObject.GetOrAddComponent<SadistMono>();
+            player.gameObject.GetOrAddComponent<UnholyCurseMono>();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            Destroy(player.gameObject.GetOrAddComponent<UnholyCurseMono>());
 
         }
 
         protected override string GetTitle()
         {
-            return "Sadist";
+            return "Fallen Angel";
         }
         protected override string GetDescription()
         {
-            return "Increased power per curse";
+            return "Gain a revive for every 4 curses you have";
         }
         protected override GameObject GetCardArt()
         {
@@ -51,23 +52,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfoStat[] GetStats()
         {
-            return new CardInfoStat[]
-            {
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Speed",
-                    amount = "+20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }      ,         
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Damage",
-                    amount = "+20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }
-            };
+            return null;
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {

@@ -15,8 +15,8 @@ namespace FlairsCards.Cards
 
         public override IEnumerator Init()
         {
-            //while (!()) yield return null;
-            yield return null;
+            while (!(Royalty.Card)) yield return null;
+            ClassesRegistry.Register(Royalty.Card, CardType.Entry);
         }
         public override IEnumerator PostInit()
         {

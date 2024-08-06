@@ -78,7 +78,9 @@
     <Compile Include="Cards\Accursed\Accursed.cs" />
     <Compile Include="Cards\Accursed\AccursedClass.cs" />
     <Compile Include="Cards\Accursed\CursedDraw.cs" />
-    <Compile Include="Cards\Accursed\Sadist.cs" />
+    <Compile Include="Cards\Accursed\FallenAngel.cs" />
+    <Compile Include="Cards\Accursed\Plaguebearer.cs" />
+    <Compile Include="Cards\Accursed\Sadistic.cs" />
     <Compile Include="Cards\Accursed\UnholyCurse.cs" />
     <Compile Include="Cards\Accursed\UnluckySouls.cs" />
     <Compile Include="Cards\Blocker\BlockerClass.cs" />
@@ -120,9 +122,10 @@
     <Compile Include="Cards\Normal\Weightless.cs" />
     <Compile Include="Cards\Normal\HeavenlyDraw.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="MonoBehaviours\PlaguebearerMono.cs" />
     <Compile Include="MonoBehaviours\RoyaltyMono.cs" />
-    <Compile Include="MonoBehaviours\SadistMono.cs" />
-    <Compile Include="MonoBehaviours\UnluckyMono.cs" />
+    <Compile Include="MonoBehaviours\SadisticMono.cs" />
+    <Compile Include="MonoBehaviours\UnholyCurseMono.cs" />
     <Compile Include="Utilities\FCDebug.cs" />
     <Compile Include="FlairsCards.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

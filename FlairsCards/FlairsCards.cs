@@ -55,12 +55,11 @@ namespace FlairsCards
             CustomCard.BuildCard<Trickshot>();
             CustomCard.BuildCard<Weightless>();
 
-            //CustomCard.BuildCard<MagicBullet>();
-            //CustomCard.BuildCard<Immunity>();
-
             //Accursed Class
             CustomCard.BuildCard<Accursed>((card) => Accursed.Card = card);
             CustomCard.BuildCard<CursedDraw>((card) => CursedDraw.Card = card);
+            CustomCard.BuildCard<Plaguebearer>((card) => Plaguebearer.Card = card);
+            CustomCard.BuildCard<Sadistic>((card) => Sadistic.Card = card);
             CustomCard.BuildCard<UnholyCurse>((card) => UnholyCurse.Card = card);
             CustomCard.BuildCard<UnluckySouls>((card) => UnluckySouls.Card = card);
 

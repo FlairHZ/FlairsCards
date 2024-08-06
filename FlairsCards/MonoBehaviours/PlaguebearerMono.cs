@@ -7,7 +7,7 @@ using FC.Extensions;
 
 namespace FlairsCards.MonoBehaviours
 {
-    class SadistMono : MonoBehaviour
+    class PlaguebearerMono : MonoBehaviour
     {
         private Player player;
         private void Start()
@@ -23,8 +23,11 @@ namespace FlairsCards.MonoBehaviours
 
         IEnumerator PickEnd(IGameModeHandler gm)
         {
-            CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse); });
-            player.data.stats.GetAdditionalData().curses += 1;
+            for (int i = 0; i < PlayerManager.instance.players.Count; i++)
+            {
+                var chosenPlayer = PlayerManager.instance.players[i];
+                CurseManager.instance.CursePlayer(chosenPlayer, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer, curse); });
+            }
 
             yield break;
         }

@@ -17,7 +17,7 @@ namespace FlairsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             gun.damage = 0.6f;
-            gun.percentageDamage = 0.15f;
+            gun.percentageDamage = 0.10f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -51,7 +51,7 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Max HP Damage",
-                    amount = "+15%",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()

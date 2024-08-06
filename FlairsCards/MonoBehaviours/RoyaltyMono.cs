@@ -1,55 +1,46 @@
-﻿using UnityEngine;
-using UnboundLib.GameModes;
+﻿using UnboundLib.GameModes;
+using UnityEngine;
 using System.Collections;
-using ModdingUtils.GameModes;
-using WillsWackyManagers.Utils;
-using ModdingUtils;
 using ModdingUtils.MonoBehaviours;
+using WillsWackyManagers.Utils;
+using FC.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace FlairsCards.MonoBehaviours
 {
-    class RoyaltyMono : ReversibleEffect, IPointStartHookHandler, IPointEndHookHandler
+    class RoyaltyMono : MonoBehaviour
     {
-        private float totalPoints = 3;
+        private Player player;
+        private Gun gun; 
+        private float totalPoints;
         private List<TeamScore> currentScore = new List<TeamScore>();
-        public void OnGameStart()
+        private void Start()
         {
-            UnityEngine.GameObject.Destroy(this);
-        }
-        public override void OnStart()
-        {
-            InterfaceGameModeHooksManager.instance.RegisterHooks(this);
-            applyImmediately = false;
-            this.SetLivesToEffect(int.MaxValue);
+            player = GetComponentInParent<Player>();
+            gun = GetComponentInParent<Gun>();
+            GameModeManager.AddHook(GameModeHooks.HookBattleStart, BattleStart);
         }
 
-        public void OnPointStart()
+        private void OnDestroy()
         {
-            this.ClearModifiers();
-            UpdateEffects();
-            this.ApplyModifiers();
+            GameModeManager.RemoveHook(GameModeHooks.HookBattleStart, BattleStart);
         }
-        public void OnPointEnd()
-        {
-            this.ClearModifiers();
-        }
-        public override void OnOnDestroy()
-        {
-            InterfaceGameModeHooksManager.instance.RemoveHooks(this);
-        }
-        private void UpdateEffects()
+
+        IEnumerator BattleStart(IGameModeHandler gm)
         {
             currentScore.Clear();
             currentScore = PlayerManager.instance.players.Select(p => p.teamID).Distinct().Select(ID => GameModeManager.CurrentHandler.GetTeamScore(ID)).ToList();
+            totalPoints = 0;
 
             foreach (var score in currentScore)
             {
-                totalPoints += score.rounds;
+                totalPoints += score.points;
             }
 
-            this.gunStatModifier.damage_add = totalPoints;
+            gun.damage = (float)(1 + (totalPoints * 0.1));
+
+            yield break;
         }
     }
 }

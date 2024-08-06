@@ -4,28 +4,44 @@ using System.Collections;
 using ModdingUtils.MonoBehaviours;
 using WillsWackyManagers.Utils;
 using FC.Extensions;
+using ModdingUtils.GameModes;
+using static ModdingUtils.Utils.SortingController;
 
 namespace FlairsCards.MonoBehaviours
 {
-    class SadisticMono : MonoBehaviour
+    class SadisticMono : ReversibleEffect, IRoundStartHookHandler, IRoundEndHookHandler, IGameStartHookHandler
     {
-        private Player player;
-        private void Start()
+        public override void OnStart()
         {
-            player = GetComponentInParent<Player>();
-            GameModeManager.AddHook(GameModeHooks.HookPickEnd, PickEnd);
+            InterfaceGameModeHooksManager.instance.RegisterHooks(this);
+            applyImmediately = false;
         }
 
-        private void OnDestroy()
+        public override void OnOnDestroy()
         {
-            GameModeManager.RemoveHook(GameModeHooks.HookPickEnd, PickEnd);
+            InterfaceGameModeHooksManager.instance.RemoveHooks(this);
         }
 
-        IEnumerator PickEnd(IGameModeHandler gm)
+        public void OnRoundStart()
         {
-            player.data.stats.movementSpeed = (float)(1.0 + (player.data.stats.GetAdditionalData().curses * 0.2));
+            this.ClearModifiers();
+            UpdateMultipliers();
+            this.ApplyModifiers();
+        }
+        public void OnRoundEnd()
+        {
+            this.ClearModifiers();
+        }
 
-            yield break;
+        public void OnGameStart()
+        {
+            UnityEngine.GameObject.Destroy(this);
+        }
+
+        private void UpdateMultipliers()
+        {
+            this.gunStatModifier.damage_add = (float)(player.data.stats.GetAdditionalData().curses * 0.2);
+            this.characterStatModifiersModifier.movementSpeed_add = (float)(player.data.stats.GetAdditionalData().curses * 0.2);
         }
     }
 }

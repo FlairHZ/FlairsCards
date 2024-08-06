@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassesManagerReborn.Util;
+using FC.Extensions;
 using FlairsCards.MonoBehaviours;
 using ModdingUtils.Extensions;
 using UnboundLib;
@@ -16,6 +17,7 @@ namespace FlairsCards.Cards
     class Sadistic : CustomCard
     {
         internal static CardInfo Card = null;
+        string str;
         public override void Callback()
         {
             gameObject.GetOrAddComponent<ClassNameMono>().className = AccursedClass.name;

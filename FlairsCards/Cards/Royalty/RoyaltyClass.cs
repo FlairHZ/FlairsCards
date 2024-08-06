@@ -11,7 +11,7 @@ namespace FlairsCards.Cards
 {
     class RoyaltyClass : ClassHandler
     {
-        internal static string name = "Survivalist";
+        internal static string name = "Royalty";
 
         public override IEnumerator Init()
         {

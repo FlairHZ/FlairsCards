@@ -10,6 +10,7 @@ using UnboundLib.Cards;
 using UnityEngine;
 using WillsWackyManagers.Utils;
 using FC.Extensions;
+using ModdingUtils.MonoBehaviours;
 
 
 namespace FlairsCards.Cards
@@ -29,7 +30,7 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse); });
+            CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse); }); 
             player.data.stats.GetAdditionalData().curses += 1;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

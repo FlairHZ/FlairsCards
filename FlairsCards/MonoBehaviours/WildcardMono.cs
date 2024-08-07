@@ -45,6 +45,7 @@ namespace FlairsCards.MonoBehaviours
             if (previousCard != null)
             {
                 ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, previousCard, ModdingUtils.Utils.Cards.SelectionType.Oldest);
+                previousCard = null;
             }
 
             int chance = UnityEngine.Random.Range(-2 + player.data.stats.GetAdditionalData().luck, player.data.stats.GetAdditionalData().luck);

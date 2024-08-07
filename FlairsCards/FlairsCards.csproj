@@ -49,6 +49,9 @@
     <Reference Include="ClassesManagerReborn">
       <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\Testing\BepInEx\plugins\Root-Classes_Manager_Reborn\ClassesManagerReborn.dll</HintPath>
     </Reference>
+    <Reference Include="Infoholic">
+      <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\Testing\BepInEx\plugins\Penial-Infoholic\Infoholic.dll</HintPath>
+    </Reference>
     <Reference Include="ModdingUtils">
       <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\ROUNDS\profiles\Testing\BepInEx\plugins\Pykess-ModdingUtils\ModdingUtils.dll</HintPath>
     </Reference>
@@ -84,6 +87,8 @@
     <Compile Include="Cards\Accursed\UnholyCurse.cs" />
     <Compile Include="Cards\Accursed\UnluckySouls.cs" />
     <Compile Include="Cards\Blocker\BlockerClass.cs" />
+    <Compile Include="Cards\Gambler\Gambler.cs" />
+    <Compile Include="Cards\Gambler\Wildcard.cs" />
     <Compile Include="Extensions\CharacterStatModifiers.cs" />
     <Compile Include="Cards\Gambler\GamblerClass.cs" />
     <Compile Include="Cards\Speedster\Adrenaline.cs" />

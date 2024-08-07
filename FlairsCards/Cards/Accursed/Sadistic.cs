@@ -17,7 +17,6 @@ namespace FlairsCards.Cards
     class Sadistic : CustomCard
     {
         internal static CardInfo Card = null;
-        string str;
         public override void Callback()
         {
             gameObject.GetOrAddComponent<ClassNameMono>().className = AccursedClass.name;

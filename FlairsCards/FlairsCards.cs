@@ -9,6 +9,7 @@ using WillsWackyManagers.Utils;
 using UnityEngine;
 using ClassesManagerReborn.Util;
 using ClassesManagerReborn;
+using Infoholic;
 
 
 namespace FlairsCards
@@ -64,6 +65,10 @@ namespace FlairsCards
             CustomCard.BuildCard<UnholyCurse>((card) => UnholyCurse.Card = card);
             CustomCard.BuildCard<UnluckySouls>((card) => UnluckySouls.Card = card);
 
+            //Gambler Class
+            CustomCard.BuildCard<Gambler>((card) => Gambler.Card = card);
+            CustomCard.BuildCard<Wildcard>((card) => Wildcard.Card = card);
+
             //Royalty Class
             CustomCard.BuildCard<Royalty>((card) => Royalty.Card = card);
 
@@ -82,7 +87,6 @@ namespace FlairsCards
             CustomCard.BuildCard<FracturedShield>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<RandomDebuff>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<WeakenedWill>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
-
             instance = this;
 
         }

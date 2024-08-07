@@ -7,23 +7,23 @@ using FC.Extensions;
 
 namespace FlairsCards.MonoBehaviours
 {
-    class SadisticMono : MonoBehaviour
+    class SadisticMono : ReversibleEffect
     {
-        private Player player;
-        private void Start()
+        public override void OnStart()
         {
             player = GetComponentInParent<Player>();
             GameModeManager.AddHook(GameModeHooks.HookPickEnd, PickEnd);
         }
 
-        private void OnDestroy()
+        public override void OnOnDestroy()
         {
             GameModeManager.RemoveHook(GameModeHooks.HookPickEnd, PickEnd);
         }
 
         IEnumerator PickEnd(IGameModeHandler gm)
         {
-            player.data.stats.movementSpeed = (float)(1.0 + (player.data.stats.GetAdditionalData().curses * 0.2));
+            this.characterStatModifiersModifier.movementSpeed_add = (float)(1.0 + (player.data.stats.GetAdditionalData().curses * 0.2));
+            this.ApplyModifiers();
 
             yield break;
         }

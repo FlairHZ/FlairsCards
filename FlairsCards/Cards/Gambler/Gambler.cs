@@ -15,7 +15,7 @@ using ModdingUtils.MonoBehaviours;
 
 namespace FlairsCards.Cards
 {
-    class Accursed : CustomCard
+    class Gambler : CustomCard
     {
         internal static CardInfo Card = null;
         public override void Callback()
@@ -24,29 +24,23 @@ namespace FlairsCards.Cards
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            statModifiers.movementSpeed = 1.2f;
-            gun.damage = 1.8f;
+            gun.damage = 1.1f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse); }); 
-            player.data.stats.GetAdditionalData().curses += 1;
+            player.data.stats.GetAdditionalData().luck += 1;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            /*player.data.stats.GetAdditionalData().curses -= 1;
-            statModifiers.movementSpeed = 1f;
-            gun.damage = 1f;
-            cardInfo.allowMultiple = true;*/
-            }
+            //
+        }
         protected override string GetTitle()
         {
-            return "Accursed";
+            return "Gambler";
         }
         protected override string GetDescription()
         {
-            return "Learn to grow stronger with the curses inflicted upon you";
+            return "Are you feeling lucky today?";
         }
         protected override GameObject GetCardArt()
         {
@@ -63,24 +57,17 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Speed",
-                    amount = "+20%",
+                    stat = "Luck",
+                    amount = "+1",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+80%",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.lower
                 },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Curse",
-                    amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.lower
-                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

@@ -8,10 +8,12 @@ namespace FC.Extensions
     public class CharacterStatModifiersAdditionalData
     {
         public int curses;
+        public int luck;
 
         public CharacterStatModifiersAdditionalData()
         {
             curses = 0;
+            luck = 0;
         }
     }
     public static class CharacterStatModifiersExtension
@@ -39,7 +41,8 @@ namespace FC.Extensions
     {
         private static void Prefix(CharacterStatModifiers __instance)
         {
-            __instance.GetAdditionalData().curses = 0; 
+            __instance.GetAdditionalData().curses = 0;
+            __instance.GetAdditionalData().luck = 0;
         }
     }
 }

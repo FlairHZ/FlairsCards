@@ -65,8 +65,8 @@ namespace FlairsCards
 
             //Gambler Class
             CustomCard.BuildCard<Gambler>((card) => Gambler.Card = card); 
+            CustomCard.BuildCard<NaturalLuck>((card) => NaturalLuck.Card = card);
             CustomCard.BuildCard<Wildcard>((card) => Wildcard.Card = card);
-
 
             //Unobtainable Gambler Cards
             CustomCard.BuildCard<Neutral>((card) => Neutral.Card = card); 

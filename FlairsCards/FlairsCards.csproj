@@ -89,7 +89,7 @@
     <Compile Include="Cards\Blocker\BlockerClass.cs" />
     <Compile Include="Cards\Gambler\Gambler.cs" />
     <Compile Include="Cards\Gambler\GamblerClass.cs" />
-    <Compile Include="Cards\Gambler\GamblerUnobtainable\Neutral.cs" />
+    <Compile Include="Cards\Gambler\Neutral.cs" />
     <Compile Include="Cards\Gambler\NaturalLuck.cs" />
     <Compile Include="Cards\Gambler\Wildcard.cs" />
     <Compile Include="Extensions\CharacterStatModifiers.cs" />
@@ -109,7 +109,6 @@
     <Compile Include="Cards\Speedster\SupersonicCannon.cs" />
     <Compile Include="Cards\Royalty\Royalty.cs" />
     <Compile Include="Cards\Royalty\RoyaltyClass.cs" />
-    <Compile Include="Cards\Testing\MagicBullet.cs" />
     <Compile Include="Cards\Normal\RandomBuff.cs" />
     <Compile Include="Cards\Normal\RapidBlock.cs" />
     <Compile Include="Cards\Normal\Cannonball.cs" />
@@ -128,6 +127,7 @@
     <Compile Include="Cards\Normal\HeavenlyDraw.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="MonoBehaviours\FallenAngelMono.cs" />
+    <Compile Include="MonoBehaviours\NaturalLuckMono.cs" />
     <Compile Include="MonoBehaviours\PlaguebearerMono.cs" />
     <Compile Include="MonoBehaviours\RoyaltyMono.cs" />
     <Compile Include="MonoBehaviours\SadisticMono.cs" />

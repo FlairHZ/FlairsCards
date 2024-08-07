@@ -16,7 +16,7 @@ using FlairsCards.MonoBehaviours;
 
 namespace FlairsCards.Cards
 {
-    class Wildcard : CustomCard
+    class NaturalLuck : CustomCard
     {
         internal static CardInfo Card = null;
 
@@ -30,7 +30,7 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            player.gameObject.GetOrAddComponent<WildcardMono>();
+            player.gameObject.GetOrAddComponent<NaturalLuckMono>(); 
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -38,11 +38,11 @@ namespace FlairsCards.Cards
         }
         protected override string GetTitle()
         {
-            return "Wildcard";
+            return "Natural Luck";
         }
         protected override string GetDescription()
         {
-            return "Having the same card constantly is lame";
+            return "What will your fortune read this round?";
         }
         protected override GameObject GetCardArt()
         {

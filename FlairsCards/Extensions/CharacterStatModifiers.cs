@@ -11,14 +11,10 @@ namespace FC.Extensions
     {
         public int curses;
         public int luck;
-        public bool wildcard;
-        public bool broke;
         public CharacterStatModifiersAdditionalData()
         {
             curses = 0;
             luck = 0;
-            wildcard = false;
-            broke = false;
         }
     }
     public static class CharacterStatModifiersExtension
@@ -48,9 +44,6 @@ namespace FC.Extensions
         {
             __instance.GetAdditionalData().curses = 0;
             __instance.GetAdditionalData().luck = 0;
-            __instance.GetAdditionalData().wildcard = false;
-            __instance.GetAdditionalData().broke = false;
-
         }
     }
 }

@@ -32,6 +32,7 @@ namespace FlairsCards
         {
             RarityUtils.AddRarity("Legendary", 0.025f, new Color(1, 1, 0), new Color(0.7f, 0.7f, 0));
             RarityUtils.AddRarity("Masterwork", 0.01f, new Color(0.17f, 0.97f, 1), new Color(0.11f, 0.71f, 0.73f));
+            RarityUtils.AddRarity("Unobtainable", 0.0000001f, new Color(0.17f, 0.97f, 1), new Color(0.11f, 0.71f, 0.73f));
             new Harmony(ModId).PatchAll();
         }
         void Start()
@@ -64,16 +65,18 @@ namespace FlairsCards
             CustomCard.BuildCard<UnluckySouls>((card) => UnluckySouls.Card = card);
 
             //Gambler Class
-            CustomCard.BuildCard<Gambler>((card) => Gambler.Card = card);
+            CustomCard.BuildCard<Broke>((card) => Broke.Card = card);
+            CustomCard.BuildCard<Gambler>((card) => Gambler.Card = card); 
+            CustomCard.BuildCard<Neutral>((card) => Neutral.Card = card);
             CustomCard.BuildCard<Wildcard>((card) => Wildcard.Card = card);
 
             //Royalty Class
             CustomCard.BuildCard<Royalty>((card) => Royalty.Card = card);
 
             //Speedster Class
-            CustomCard.BuildCard<Speedster>((card) => Speedster.Card = card);
             CustomCard.BuildCard<Adrenaline>((card) => Adrenaline.Card = card);
-            CustomCard.BuildCard<EnergyDrink>((card) => EnergyDrink.Card = card);
+            CustomCard.BuildCard<EnergyDrink>((card) => EnergyDrink.Card = card); 
+            CustomCard.BuildCard<Speedster>((card) => Speedster.Card = card);
             CustomCard.BuildCard<SupersonicCannon>((card) => SupersonicCannon.Card = card);
             CustomCard.BuildCard<EnergyConverter>((card) => EnergyConverter.Card = card);
 

@@ -18,6 +18,8 @@ namespace FlairsCards.Cards
             while (!(Gambler.Card)) yield return null;
             ClassesRegistry.Register(Gambler.Card, CardType.Entry);
             ClassesRegistry.Register(Wildcard.Card, CardType.Card, Gambler.Card);
+            ClassesRegistry.Register(Broke.Card, CardType.Card, Gambler.Card);
+            ClassesRegistry.Register(Neutral.Card, CardType.Card, Gambler.Card);
         }
         public override IEnumerator PostInit()
         {

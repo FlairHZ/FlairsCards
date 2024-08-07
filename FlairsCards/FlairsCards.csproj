@@ -87,10 +87,14 @@
     <Compile Include="Cards\Accursed\UnholyCurse.cs" />
     <Compile Include="Cards\Accursed\UnluckySouls.cs" />
     <Compile Include="Cards\Blocker\BlockerClass.cs" />
-    <Compile Include="Cards\Gambler\Broke.cs" />
+    <Compile Include="Cards\Gambler\GamblerUnobtainable\777.cs" />
+    <Compile Include="Cards\Gambler\GamblerUnobtainable\BigBlind.cs" />
+    <Compile Include="Cards\Gambler\GamblerUnobtainable\Broke.cs" />
     <Compile Include="Cards\Gambler\Gambler.cs" />
     <Compile Include="Cards\Gambler\GamblerClass.cs" />
-    <Compile Include="Cards\Gambler\Neutral.cs" />
+    <Compile Include="Cards\Gambler\GamblerUnobtainable\Jackpot.cs" />
+    <Compile Include="Cards\Gambler\GamblerUnobtainable\Neutral.cs" />
+    <Compile Include="Cards\Gambler\GamblerUnobtainable\SmallBlind.cs" />
     <Compile Include="Cards\Gambler\Wildcard.cs" />
     <Compile Include="Extensions\CharacterStatModifiers.cs" />
     <Compile Include="Cards\Speedster\Adrenaline.cs" />

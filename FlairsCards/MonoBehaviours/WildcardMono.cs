@@ -20,7 +20,7 @@ namespace FlairsCards.MonoBehaviours
         private Block block;
         private CharacterStatModifiers characterStats;
         CardInfo previousCard;  // Field to track the previous card
-
+        List<CardInfo> currentCards;
         private void Start()
         {
             player = gameObject.GetComponentInParent<Player>();
@@ -31,7 +31,9 @@ namespace FlairsCards.MonoBehaviours
             gravity = player.GetComponent<Gravity>();
             block = player.GetComponent<Block>();
             characterStats = player.GetComponent<CharacterStatModifiers>();
-            GameModeManager.AddHook(GameModeHooks.HookPickEnd, PickEnd);
+            GameModeManager.AddHook(GameModeHooks.HookPickEnd, PickEnd); 
+            GameModeManager.AddHook(GameModeHooks.HookRoundEnd, RoundEnd);
+            currentCards = player.data.currentCards;
         }
 
         private void OnDestroy()
@@ -39,50 +41,61 @@ namespace FlairsCards.MonoBehaviours
             GameModeManager.RemoveHook(GameModeHooks.HookPickEnd, PickEnd);
         }
 
+        IEnumerator RoundEnd(IGameModeHandler gm)
+        {
+            ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, previousCard, ModdingUtils.Utils.Cards.SelectionType.Oldest); 
+            yield break;
+        }
         IEnumerator PickEnd(IGameModeHandler gm)
         {
-            // Remove the card chosen in the previous round if it exists
-            if (previousCard != null)
-            {
-                ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, previousCard, ModdingUtils.Utils.Cards.SelectionType.Oldest);
-                previousCard = null;
-            }
-
+            // Draw a new card for this turn
             int chance = UnityEngine.Random.Range(-2 + player.data.stats.GetAdditionalData().luck, player.data.stats.GetAdditionalData().luck);
+            CardInfo newCard = null;
+
             if (chance < 0)
             {
                 var cursedCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CursedCondition);
                 CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, cursedCard); });
-                var brokeCard = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CursedNameCondition);
-                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, brokeCard, addToCardBar: true);
-                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, brokeCard, 0f);
-                previousCard = brokeCard;
+                newCard = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CursedNameCondition); 
+                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, newCard, addToCardBar: true);
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f);
             }
             else if (chance == 0)
             {
-                var neutralCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, NeutralNameCondition);
-                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, neutralCard, addToCardBar: true);
-                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, neutralCard, 0f);
-                previousCard = neutralCard;
+                newCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, NeutralNameCondition);
+                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, newCard, addToCardBar: true);
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f);
             }
-            else if (chance > 0 && chance <= 2)
+            else if (chance > 0 && chance <= 1)
             {
-                var decentCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CommonUnCondition);
-                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, decentCard, addToCardBar: true);
-                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, decentCard, 0f);
-                previousCard = decentCard;
+                newCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CommonCondition);
+                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, newCard, addToCardBar: true);
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f);
             }
-            else if (chance > 2 && chance <= 4)
+            else if (chance >= 2 && chance <= 3)
             {
-                // Logic for rare card
+                newCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, UncommonCondition);
+                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, newCard, addToCardBar: true);
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f);
+            }
+            else if (chance >= 4 && chance <= 5)
+            {
+                newCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, RareCondition);
+                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, newCard, addToCardBar: true);
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f);
             }
             else
             {
-                // Logic for very good cards
+                newCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, ExcellentCondition);
+                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, newCard, addToCardBar: true);
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f);
             }
+
+            previousCard = newCard;  // Update the previous card to the newly drawn card
 
             yield break;
         }
+
 
         private bool CursedCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -98,10 +111,38 @@ namespace FlairsCards.MonoBehaviours
         {
             return card.cardName == "Neutral";
         }
-
-        private bool CommonUnCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        private bool CommonNameCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            return card.rarity == CardInfo.Rarity.Common || card.rarity == CardInfo.Rarity.Uncommon;
+            return card.cardName == "Small blind";
+        }
+        private bool UncommonNameCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            return card.cardName == "Big blind";
+        }
+        private bool RareNameCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            return card.cardName == "Jackpot";
+        }
+        private bool ExcellentNameCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            return card.cardName == "777";
+        }
+
+        private bool CommonCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            return card.rarity == CardInfo.Rarity.Common;
+        }
+        private bool UncommonCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            return card.rarity == CardInfo.Rarity.Uncommon;
+        }
+        private bool RareCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            return card.rarity == CardInfo.Rarity.Rare;
+        }
+        private bool ExcellentCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            return card.rarity == CardInfo.Rarity.Rare;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace FlairsCards.Cards
             {
                 var randomPlayer = UnityEngine.Random.Range(0, PlayerManager.instance.players.Count);
                 var chosenPlayer = PlayerManager.instance.players[randomPlayer];
+                chosenPlayer.data.stats.GetAdditionalData().curses += 1;
                 CurseManager.instance.CursePlayer(chosenPlayer, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(chosenPlayer, curse); });
             }
 

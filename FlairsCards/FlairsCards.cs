@@ -9,8 +9,6 @@ using WillsWackyManagers.Utils;
 using UnityEngine;
 using ClassesManagerReborn.Util;
 using ClassesManagerReborn;
-using Infoholic;
-
 
 namespace FlairsCards
 {
@@ -79,6 +77,7 @@ namespace FlairsCards
             CustomCard.BuildCard<SupersonicCannon>((card) => SupersonicCannon.Card = card);
             CustomCard.BuildCard<EnergyConverter>((card) => EnergyConverter.Card = card);
 
+            //Curse Cards
             CustomCard.BuildCard<BattleScarred>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<BlindingSpeed>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<BucklingPressure>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });

@@ -11,37 +11,38 @@ using UnityEngine;
 using WillsWackyManagers.Utils;
 using FC.Extensions;
 using ModdingUtils.MonoBehaviours;
-using RarityLib.Utils;
+using FlairsCards.MonoBehaviours;
 
 
 namespace FlairsCards.Cards
 {
-    class _777 : CustomCard
+    class Wildcard : CustomCard
     {
         internal static CardInfo Card = null;
+
         public override void Callback()
         {
             gameObject.GetOrAddComponent<ClassNameMono>().className = GamblerClass.name;
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-
+            cardInfo.allowMultiple = false;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            player.gameObject.GetOrAddComponent<WildcardMono>();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //
+            Destroy(player.gameObject.GetOrAddComponent<WildcardMono>());
         }
         protected override string GetTitle()
         {
-            return "777";
+            return "Wildcard";
         }
         protected override string GetDescription()
         {
-            return "You bet big on slots and when it all";
+            return "Having the same card constantly is lame";
         }
         protected override GameObject GetCardArt()
         {
@@ -49,11 +50,16 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return RarityUtils.GetRarity("Unobtainable");
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {
-            return null;
+            return new CardInfoStat[]
+            {
+                new CardInfoStat()
+                {
+                },
+            };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {

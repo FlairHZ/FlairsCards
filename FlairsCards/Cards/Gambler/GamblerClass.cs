@@ -20,12 +20,8 @@ namespace FlairsCards.Cards
             ClassesRegistry.Register(Wildcard.Card, CardType.Card, Gambler.Card);
 
 
-            ClassesRegistry.Register(Broke.Card, CardType.Card, Gambler.Card);
             ClassesRegistry.Register(Neutral.Card, CardType.Card, Gambler.Card);
-            ClassesRegistry.Register(SmallBlind.Card, CardType.Card, Gambler.Card);
-            ClassesRegistry.Register(BigBlind.Card, CardType.Card, Gambler.Card);
-            ClassesRegistry.Register(Jackpot.Card, CardType.Card, Gambler.Card);
-            ClassesRegistry.Register(_777.Card, CardType.Card, Gambler.Card);
+
         }
         public override IEnumerator PostInit()
         {

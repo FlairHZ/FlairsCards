@@ -40,7 +40,6 @@ namespace FlairsCards
             CustomCard.BuildCard<AllOrNothing>();
             CustomCard.BuildCard<AntiBlock>();
             CustomCard.BuildCard<AntiGravity>();
-            CustomCard.BuildCard<BattleAngel>();
             CustomCard.BuildCard<Cannonball>();
             CustomCard.BuildCard<CripplingBullets>();
             CustomCard.BuildCard<EvasiveManuvers>();
@@ -65,18 +64,12 @@ namespace FlairsCards
             CustomCard.BuildCard<UnluckySouls>((card) => UnluckySouls.Card = card);
 
             //Gambler Class
-            CustomCard.BuildCard<Broke>((card) => Broke.Card = card);
             CustomCard.BuildCard<Gambler>((card) => Gambler.Card = card); 
             CustomCard.BuildCard<Wildcard>((card) => Wildcard.Card = card);
 
 
             //Unobtainable Gambler Cards
-            CustomCard.BuildCard<Broke>((card) => Broke.Card = card);
             CustomCard.BuildCard<Neutral>((card) => Neutral.Card = card); 
-            CustomCard.BuildCard<SmallBlind>((card) => SmallBlind.Card = card); 
-            CustomCard.BuildCard<BigBlind>((card) => BigBlind.Card = card);
-            CustomCard.BuildCard<Jackpot>((card) => Jackpot.Card = card); 
-            CustomCard.BuildCard<_777>((card) => _777.Card = card);
 
             //Royalty Class
             CustomCard.BuildCard<Royalty>((card) => Royalty.Card = card);

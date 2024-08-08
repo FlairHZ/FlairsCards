@@ -17,6 +17,8 @@ namespace FlairsCards.Cards
         {
             while (!(Royalty.Card)) yield return null;
             ClassesRegistry.Register(Royalty.Card, CardType.Entry);
+            ClassesRegistry.Register(Arrogance.Card, CardType.Card, Royalty.Card);
+
         }
         public override IEnumerator PostInit()
         {

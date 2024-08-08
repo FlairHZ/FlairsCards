@@ -92,6 +92,7 @@
     <Compile Include="Cards\Gambler\Neutral.cs" />
     <Compile Include="Cards\Gambler\NaturalLuck.cs" />
     <Compile Include="Cards\Gambler\Wildcard.cs" />
+    <Compile Include="Cards\Royalty\Arrogance.cs" />
     <Compile Include="Extensions\CharacterStatModifiers.cs" />
     <Compile Include="Cards\Speedster\Adrenaline.cs" />
     <Compile Include="Cards\Speedster\EnergyConverter.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Cards\Normal\Weightless.cs" />
     <Compile Include="Cards\Normal\HeavenlyDraw.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="MonoBehaviours\ArroganceMono.cs" />
     <Compile Include="MonoBehaviours\FallenAngelMono.cs" />
     <Compile Include="MonoBehaviours\NaturalLuckMono.cs" />
     <Compile Include="MonoBehaviours\PlaguebearerMono.cs" />

@@ -14,12 +14,12 @@ using ClassesManagerReborn.Util;
 
 namespace FlairsCards.Cards
 {
-    class Royalty : CustomCard
+    class Arrogance : CustomCard
     {
         internal static CardInfo Card = null;
         public override void Callback()
         {
-            gameObject.GetOrAddComponent<ClassNameMono>();
+            gameObject.GetOrAddComponent<ClassNameMono>().className = RoyaltyClass.name;
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
@@ -27,7 +27,7 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            player.gameObject.GetOrAddComponent<RoyaltyMono>();
+            player.gameObject.GetOrAddComponent<ArroganceMono>();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -36,11 +36,11 @@ namespace FlairsCards.Cards
 
         protected override string GetTitle()
         {
-            return "Royalty";
+            return "Arrogance";
         }
         protected override string GetDescription()
         {
-            return "Gain stacking damage at the end of each point, depending on how many points you have";
+            return "Losing to peasants should never happen";
         }
         protected override GameObject GetCardArt()
         {
@@ -57,8 +57,15 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage per point",
+                    stat = "Damage/HP/Speed per point won",
                     amount = "+5%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },                
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Damage/HP/Speed per point lost",
+                    amount = "-7.5%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

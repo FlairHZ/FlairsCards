@@ -6,33 +6,29 @@ using WillsWackyManagers.Utils;
 using FC.Extensions;
 using System.Collections.Generic;
 using System.Linq;
-using FlairsCards.MonoBehaviours;
 
 namespace FlairsCards.MonoBehaviours
 {
-    class RoyaltyMono : ReversibleEffect
+    class RoyaltyMono : MonoBehaviour
     {
         private Player player;
         private Gun gun; 
         private float totalPoints;
         private List<TeamScore> currentScore = new List<TeamScore>();
-        public override void OnStart()
+        private void Start()
         {
-            player = GetComponentInParent<Player>();
-            gun = GetComponentInParent<Gun>();
-            GameModeManager.AddHook(GameModeHooks.HookPointStart, PointStart); 
-            //GameModeManager.AddHook(GameModeHooks.HookRoundEnd, RoundEnd);
+            player = gameObject.GetComponentInParent<Player>();
+            gun = player.GetComponent<Holding>().holdable.GetComponent<Gun>();
+            GameModeManager.AddHook(GameModeHooks.HookPickEnd, PickEnd);
         }
 
-        public override void OnOnDestroy()
+        private void OnDestroy()
         {
-            GameModeManager.RemoveHook(GameModeHooks.HookPointStart, PointStart); 
-            //GameModeManager.RemoveHook(GameModeHooks.HookBattleStart, RoundEnd);
+            GameModeManager.RemoveHook(GameModeHooks.HookPickEnd, PickEnd);
         }
 
-        IEnumerator PointStart(IGameModeHandler gm)
+        IEnumerator PickEnd(IGameModeHandler gm)
         {
-            this.ApplyModifiers();
             currentScore.Clear();
             currentScore = PlayerManager.instance.players.Select(p => p.teamID).Distinct().Select(ID => GameModeManager.CurrentHandler.GetTeamScore(ID)).ToList();
             totalPoints = 0;
@@ -42,8 +38,7 @@ namespace FlairsCards.MonoBehaviours
                 totalPoints += score.rounds;
             }
 
-            this.gunStatModifier.damage_add = 2f;
-            this.ClearModifiers();
+            gun.damage += (float)(totalPoints * 0.05);
 
             yield break;
         }

@@ -67,12 +67,12 @@ namespace FlairsCards
             CustomCard.BuildCard<LuckyBuff>((card) => LuckyBuff.Card = card);
             CustomCard.BuildCard<NaturalLuck>((card) => NaturalLuck.Card = card);
             CustomCard.BuildCard<Wildcard>((card) => Wildcard.Card = card);
-
-            //Unobtainable Gambler Cards
             CustomCard.BuildCard<Neutral>((card) => Neutral.Card = card); 
 
             //Royalty Class
-            CustomCard.BuildCard<Royalty>((card) => Royalty.Card = card);
+            CustomCard.BuildCard<Royalty>((card) => Royalty.Card = card); 
+            CustomCard.BuildCard<Arrogance>((card) => Arrogance.Card = card);
+
 
             //Speedster Class
             CustomCard.BuildCard<Adrenaline>((card) => Adrenaline.Card = card);

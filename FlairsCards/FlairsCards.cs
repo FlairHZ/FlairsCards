@@ -48,7 +48,6 @@ namespace FlairsCards
             CustomCard.BuildCard<ImmovableWall>();
             CustomCard.BuildCard<LevitatingBullets>();
             CustomCard.BuildCard<PrecisionShot>();
-            CustomCard.BuildCard<RandomBuff>();
             CustomCard.BuildCard<RapidBlock>();
             CustomCard.BuildCard<TankShredder>();
             CustomCard.BuildCard<Trickshot>();
@@ -65,6 +64,7 @@ namespace FlairsCards
 
             //Gambler Class
             CustomCard.BuildCard<Gambler>((card) => Gambler.Card = card); 
+            CustomCard.BuildCard<LuckyBuff>((card) => LuckyBuff.Card = card);
             CustomCard.BuildCard<NaturalLuck>((card) => NaturalLuck.Card = card);
             CustomCard.BuildCard<Wildcard>((card) => Wildcard.Card = card);
 

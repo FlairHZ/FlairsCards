@@ -6,39 +6,44 @@ using WillsWackyManagers.Utils;
 using FC.Extensions;
 using System.Collections.Generic;
 using System.Linq;
+using FlairsCards.MonoBehaviours;
 
 namespace FlairsCards.MonoBehaviours
 {
-    class RoyaltyMono : MonoBehaviour
+    class RoyaltyMono : ReversibleEffect
     {
         private Player player;
         private Gun gun; 
         private float totalPoints;
         private List<TeamScore> currentScore = new List<TeamScore>();
-        private void Start()
+        public override void OnStart()
         {
             player = GetComponentInParent<Player>();
             gun = GetComponentInParent<Gun>();
-            GameModeManager.AddHook(GameModeHooks.HookBattleStart, BattleStart);
+            GameModeManager.AddHook(GameModeHooks.HookPointStart, PointStart); 
+            //GameModeManager.AddHook(GameModeHooks.HookRoundEnd, RoundEnd);
         }
 
-        private void OnDestroy()
+        public override void OnOnDestroy()
         {
-            GameModeManager.RemoveHook(GameModeHooks.HookBattleStart, BattleStart);
+            GameModeManager.RemoveHook(GameModeHooks.HookPointStart, PointStart); 
+            //GameModeManager.RemoveHook(GameModeHooks.HookBattleStart, RoundEnd);
         }
 
-        IEnumerator BattleStart(IGameModeHandler gm)
+        IEnumerator PointStart(IGameModeHandler gm)
         {
+            this.ApplyModifiers();
             currentScore.Clear();
             currentScore = PlayerManager.instance.players.Select(p => p.teamID).Distinct().Select(ID => GameModeManager.CurrentHandler.GetTeamScore(ID)).ToList();
             totalPoints = 0;
 
             foreach (var score in currentScore)
             {
-                totalPoints += score.points;
+                totalPoints += score.rounds;
             }
 
-            gun.damage = (float)(1 + (totalPoints * 0.1));
+            this.gunStatModifier.damage_add = 2f;
+            this.ClearModifiers();
 
             yield break;
         }

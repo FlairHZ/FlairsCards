@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassesManagerReborn.Util;
 using ModdingUtils.Extensions;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -11,33 +12,21 @@ using UnityEngine;
 
 namespace FlairsCards.Cards
 {
-    class RandomBuff : CustomCard
+    class LuckyBuff : CustomCard
     {
+        internal static CardInfo Card = null;
+
+        public override void Callback()
+        {
+            gameObject.GetOrAddComponent<ClassNameMono>().className = GamblerClass.name;
+        }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            ModdingUtils.Extensions.CardInfoExtension.GetAdditionalData(cardInfo).canBeReassigned = false;
+            cardInfo.allowMultiple = false;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            System.Random rnd = new System.Random();
-            int num = rnd.Next(1, 5);
 
-            if (num == 1)
-            {
-                gun.ammo = 3;
-            }
-            else if (num == 2)
-            {
-                gun.damage = 1.2f;
-            }
-            else if (num == 3)
-            {
-                statModifiers.movementSpeed = 1.2f;
-            }
-            else
-            {
-                statModifiers.gravity = 0.8f;
-            }
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -46,11 +35,11 @@ namespace FlairsCards.Cards
 
         protected override string GetTitle()
         {
-            return "<color=#00ff00>?</color><color=#00ff00>?</color><color=#00ff00>?</color>";
+            return "Lucky Buff";
         }
         protected override string GetDescription()
         {
-            return "";
+            return "Roll a random permanent buff or debuff with its strength depending on your luck each turn";
         }
         protected override GameObject GetCardArt()
         {

@@ -23,7 +23,8 @@ namespace FlairsCards.MonoBehaviours
 
         IEnumerator PickEnd(IGameModeHandler gm)
         {
-
+            int luck = UnityEngine.Random.Range(-2, 4);
+            player.data.stats.GetAdditionalData().luck += luck;
 
             yield break;
         }

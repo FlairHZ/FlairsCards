@@ -109,7 +109,7 @@
     <Compile Include="Cards\Speedster\SupersonicCannon.cs" />
     <Compile Include="Cards\Royalty\Royalty.cs" />
     <Compile Include="Cards\Royalty\RoyaltyClass.cs" />
-    <Compile Include="Cards\Normal\RandomBuff.cs" />
+    <Compile Include="Cards\Gambler\LuckyBuff.cs" />
     <Compile Include="Cards\Normal\RapidBlock.cs" />
     <Compile Include="Cards\Normal\Cannonball.cs" />
     <Compile Include="Cards\Normal\EvasiveManuvers.cs" />

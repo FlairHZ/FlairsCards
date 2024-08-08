@@ -52,8 +52,8 @@ namespace FlairsCards.MonoBehaviours
 
             if (chance < 0)
             {
-                var cursedCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CursedCondition);
-                CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, cursedCard); });
+                newCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CursedCondition);
+                CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard); });
             }
             else if (chance == 0)
             {

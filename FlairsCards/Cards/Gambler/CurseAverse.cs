@@ -8,38 +8,42 @@ using ClassesManagerReborn.Util;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
+using WillsWackyManagers.Utils;
+using FC.Extensions;
+using ModdingUtils.MonoBehaviours;
+using FlairsCards.MonoBehaviours;
 
 
 namespace FlairsCards.Cards
 {
-    class EnergyDrink : CustomCard
+    class CurseAverse : CustomCard
     {
         internal static CardInfo Card = null;
+
         public override void Callback()
         {
-            gameObject.GetOrAddComponent<ClassNameMono>().className = SpeedsterClass.name;
+            gameObject.GetOrAddComponent<ClassNameMono>().className = GamblerClass.name;
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            statModifiers.movementSpeed = 1.35f;
-            statModifiers.health = 0.7f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //
+            player.gameObject.GetOrAddComponent<CoinflipMono>();
+            player.data.stats.GetAdditionalData().curseAverse = true;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //
+            Destroy(player.gameObject.GetOrAddComponent<CoinflipMono>());
         }
         protected override string GetTitle()
         {
-            return "Energy Drink";
+            return "Curse Averse";
         }
         protected override string GetDescription()
         {
-            return "Tired?";
+            return "Become unable to have negative luck";
         }
         protected override GameObject GetCardArt()
         {
@@ -51,23 +55,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfoStat[] GetStats()
         {
-            return new CardInfoStat[]
-            {
-                new CardInfoStat()
-                {
-                    positive = true,
-                    stat = "Speed",
-                    amount = "+35%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Health",
-                    amount = "-30%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
-                }
-            };
+            return null;
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {

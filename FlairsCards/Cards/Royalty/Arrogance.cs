@@ -31,7 +31,7 @@ namespace FlairsCards.Cards
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            Destroy(player.gameObject.GetOrAddComponent<ArroganceMono>());
         }
 
         protected override string GetTitle()
@@ -57,14 +57,14 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage/HP/Speed per point won",
+                    stat = "Damage/Speed per point won",
                     amount = "+5%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },                
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Damage/HP/Speed per point lost",
+                    stat = "Damage/Speed per point lost",
                     amount = "-7.5%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }

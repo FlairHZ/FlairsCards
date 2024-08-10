@@ -35,11 +35,8 @@ namespace FlairsCards.Cards
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            /*player.data.stats.GetAdditionalData().curses -= 1;
-            statModifiers.movementSpeed = 1f;
-            gun.damage = 1f;
-            cardInfo.allowMultiple = true;*/
-            }
+
+        }
         protected override string GetTitle()
         {
             return "Accursed";

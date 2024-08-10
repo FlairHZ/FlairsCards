@@ -55,6 +55,10 @@ namespace FlairsCards.Cards
             {
                 new CardInfoStat()
                 {
+                    positive = true,
+                    stat = "Speed",
+                    amount = "+20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
             };
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassesManagerReborn.Util;
+using FlairsCards.MonoBehaviours;
 using ModdingUtils.Extensions;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -26,11 +27,11 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            player.gameObject.GetOrAddComponent<LuckyBuffMono>();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            Destroy(player.gameObject.GetOrAddComponent<LuckyBuffMono>());
         }
 
         protected override string GetTitle()

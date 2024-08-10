@@ -20,6 +20,7 @@ namespace FlairsCards.MonoBehaviours
         private Block block;
         private CharacterStatModifiers characterStats;
         CardInfo previousCard;  // Field to track the previous card
+        int chance;
         private void Start()
         {
             player = gameObject.GetComponentInParent<Player>();
@@ -47,7 +48,14 @@ namespace FlairsCards.MonoBehaviours
         IEnumerator PickEnd(IGameModeHandler gm)
         {
             // Draw a new card for this turn
-            int chance = UnityEngine.Random.Range(-2 + player.data.stats.GetAdditionalData().luck, player.data.stats.GetAdditionalData().luck);
+            if (player.data.stats.GetAdditionalData().curseAverse == true)
+            {
+                chance = UnityEngine.Random.Range(player.data.stats.GetAdditionalData().luck, player.data.stats.GetAdditionalData().luck + 1);
+            }
+            else
+            {
+                chance = UnityEngine.Random.Range(-2 + player.data.stats.GetAdditionalData().luck, player.data.stats.GetAdditionalData().luck);
+            }
             CardInfo newCard = null; 
 
             if (chance < 0)

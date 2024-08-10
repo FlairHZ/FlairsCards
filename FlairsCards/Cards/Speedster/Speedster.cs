@@ -39,7 +39,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "A glimpse of the speed to come";
+            return "Gotta go fast";
         }
         protected override GameObject GetCardArt()
         {

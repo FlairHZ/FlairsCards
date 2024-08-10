@@ -17,10 +17,10 @@ namespace FlairsCards.Cards
         {
             while (!(Accursed.Card && UnluckySouls.Card && CursedDraw.Card && UnholyCurse.Card)) yield return null;
             ClassesRegistry.Register(Accursed.Card, CardType.Entry);
-            ClassesRegistry.Register(CursedDraw.Card, CardType.Card, Accursed.Card);
             ClassesRegistry.Register(UnluckySouls.Card, CardType.Card, Accursed.Card);
-            ClassesRegistry.Register(Sadistic.Card, CardType.Gate, Accursed.Card); 
-            ClassesRegistry.Register(UnholyCurse.Card, CardType.Gate, Accursed.Card);
+            ClassesRegistry.Register(Sadistic.Card, CardType.Card, Accursed.Card); 
+            ClassesRegistry.Register(UnholyCurse.Card, CardType.Gate, Accursed.Card); 
+            ClassesRegistry.Register(CursedDraw.Card, CardType.Gate, Accursed.Card);
             ClassesRegistry.Register(Plaguebearer.Card, CardType.SubClass, new CardInfo[] { Sadistic.Card, UnholyCurse.Card });
             ClassesRegistry.Register(FallenAngel.Card, CardType.SubClass, new CardInfo[] { Sadistic.Card, UnholyCurse.Card });
         }

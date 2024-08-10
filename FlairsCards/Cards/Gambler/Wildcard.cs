@@ -54,12 +54,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfoStat[] GetStats()
         {
-            return new CardInfoStat[]
-            {
-                new CardInfoStat()
-                {
-                },
-            };
+            return null;
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {

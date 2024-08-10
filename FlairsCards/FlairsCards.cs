@@ -63,6 +63,7 @@ namespace FlairsCards
             CustomCard.BuildCard<UnluckySouls>((card) => UnluckySouls.Card = card);
 
             //Gambler Class
+            CustomCard.BuildCard<Coinflip>((card) => Coinflip.Card = card); 
             CustomCard.BuildCard<Gambler>((card) => Gambler.Card = card); 
             CustomCard.BuildCard<LuckyBuff>((card) => LuckyBuff.Card = card);
             CustomCard.BuildCard<NaturalLuck>((card) => NaturalLuck.Card = card);
@@ -72,14 +73,15 @@ namespace FlairsCards
             //Royalty Class
             CustomCard.BuildCard<Royalty>((card) => Royalty.Card = card); 
             CustomCard.BuildCard<Arrogance>((card) => Arrogance.Card = card);
-
+            CustomCard.BuildCard<PersonalBodyguard>((card) => PersonalBodyguard.Card = card);
 
             //Speedster Class
-            CustomCard.BuildCard<Adrenaline>((card) => Adrenaline.Card = card);
+            CustomCard.BuildCard<Adrenaline>((card) => Adrenaline.Card = card); 
+            CustomCard.BuildCard<CantTouchThis>((card) => CantTouchThis.Card = card);
+            CustomCard.BuildCard<EnergyConverter>((card) => EnergyConverter.Card = card);
             CustomCard.BuildCard<EnergyDrink>((card) => EnergyDrink.Card = card); 
             CustomCard.BuildCard<Speedster>((card) => Speedster.Card = card);
             CustomCard.BuildCard<SupersonicCannon>((card) => SupersonicCannon.Card = card);
-            CustomCard.BuildCard<EnergyConverter>((card) => EnergyConverter.Card = card);
 
             //Curse Cards
             CustomCard.BuildCard<BattleScarred>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });

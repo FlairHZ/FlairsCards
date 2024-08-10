@@ -31,9 +31,8 @@ namespace FlairsCards.Cards
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            Destroy(player.gameObject.GetOrAddComponent<RoyaltyMono>());
         }
-
         protected override string GetTitle()
         {
             return "Royalty";

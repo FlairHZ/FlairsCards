@@ -42,7 +42,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "What will your fortune read this round?";
+            return "Gain or lose a random amount of luck each round";
         }
         protected override GameObject GetCardArt()
         {

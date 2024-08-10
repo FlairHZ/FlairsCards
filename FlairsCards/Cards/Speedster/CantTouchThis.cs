@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace FlairsCards.Cards
 {
-    class EnergyDrink : CustomCard
+    class CantTouchThis : CustomCard
     {
         internal static CardInfo Card = null;
         public override void Callback()
@@ -21,13 +21,12 @@ namespace FlairsCards.Cards
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
-            statModifiers.movementSpeed = 1.35f;
-            statModifiers.health = 0.7f;
+            gun.percentageDamage = 1f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //
+            gunAmmo.maxAmmo = 1;
+            characterStats.movementSpeed = 1.2f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -35,11 +34,11 @@ namespace FlairsCards.Cards
         }
         protected override string GetTitle()
         {
-            return "Energy Drink";
+            return "Can't touch this";
         }
         protected override string GetDescription()
         {
-            return "Tired?";
+            return "Juke your opponents and finish them off in one hit";
         }
         protected override GameObject GetCardArt()
         {
@@ -52,20 +51,27 @@ namespace FlairsCards.Cards
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
-            {
+            {                
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Speed",
-                    amount = "+35%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    amount = "+20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "One Shot",
+                    amount = "Bullets",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Health",
-                    amount = "-30%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    stat = "Bullet",
+                    amount = "One",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }

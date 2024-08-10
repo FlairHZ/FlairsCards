@@ -8,6 +8,7 @@ using ClassesManagerReborn.Util;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
+using RarityLib.Utils;
 
 
 namespace FlairsCards.Cards
@@ -47,7 +48,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return RarityUtils.GetRarity("CommonClass");
         }
         protected override CardInfoStat[] GetStats()
         {

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ClassesManagerReborn.Util;
 using FC.Extensions;
 using FlairsCards.MonoBehaviours;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
@@ -52,7 +53,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return RarityUtils.GetRarity("CommonClass");
         }
         protected override CardInfoStat[] GetStats()
         {

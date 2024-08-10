@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClassesManagerReborn.Util;
 using FC.Extensions;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
@@ -56,7 +57,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return RarityUtils.GetRarity("RareClass");
         }
         protected override CardInfoStat[] GetStats()
         {

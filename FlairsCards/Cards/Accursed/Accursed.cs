@@ -11,6 +11,7 @@ using UnityEngine;
 using WillsWackyManagers.Utils;
 using FC.Extensions;
 using ModdingUtils.MonoBehaviours;
+using RarityLib.Utils;
 
 
 namespace FlairsCards.Cards
@@ -51,7 +52,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return RarityUtils.GetRarity("CommonClass");
         }
         protected override CardInfoStat[] GetStats()
         {

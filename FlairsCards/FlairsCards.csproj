@@ -87,6 +87,7 @@
     <Compile Include="Cards\Accursed\UnholyCurse.cs" />
     <Compile Include="Cards\Accursed\UnluckySouls.cs" />
     <Compile Include="Cards\Blocker\BlockerClass.cs" />
+    <Compile Include="Cards\Gambler\Blackjack.cs" />
     <Compile Include="Cards\Gambler\Coinflip.cs" />
     <Compile Include="Cards\Gambler\CurseAverse.cs" />
     <Compile Include="Cards\Gambler\Gambler.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Cards\Normal\HeavenlyDraw.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="MonoBehaviours\ArroganceMono.cs" />
+    <Compile Include="MonoBehaviours\BlackjackMono.cs" />
     <Compile Include="MonoBehaviours\CoinflipMono.cs" />
     <Compile Include="MonoBehaviours\FallenAngelMono.cs" />
     <Compile Include="MonoBehaviours\LuckyBuffMono.cs" />

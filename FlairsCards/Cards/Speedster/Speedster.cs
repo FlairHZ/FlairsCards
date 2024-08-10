@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassesManagerReborn.Util;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnboundLib.Utils;
@@ -47,7 +48,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return RarityUtils.GetRarity("CommonClass");
         }
         protected override CardInfoStat[] GetStats()
         {

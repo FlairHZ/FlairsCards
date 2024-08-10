@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClassesManagerReborn.Util;
 using FC.Extensions;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
@@ -49,7 +50,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Draw two common cards, also draw a <color=#ff000fff>curse</color>";
+            return "Draw two common non-class cards, also draw a <color=#ff000fff>curse</color>";
         }
         protected override GameObject GetCardArt()
         {
@@ -57,7 +58,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return RarityUtils.GetRarity("CommonClass");
         }
         protected override CardInfoStat[] GetStats()
         {

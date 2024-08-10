@@ -20,7 +20,8 @@ namespace FlairsCards.Cards
             ClassesRegistry.Register(NaturalLuck.Card, CardType.Card, Gambler.Card);
             ClassesRegistry.Register(Coinflip.Card, CardType.Card, Gambler.Card);
             ClassesRegistry.Register(LuckyBuff.Card, CardType.Gate, Gambler.Card);
-            ClassesRegistry.Register(Wildcard.Card, CardType.Gate, Gambler.Card);
+            ClassesRegistry.Register(Wildcard.Card, CardType.Gate, Gambler.Card); 
+            ClassesRegistry.Register(CurseAverse.Card, CardType.SubClass, new CardInfo[] { LuckyBuff.Card, Wildcard.Card });
 
             ClassesRegistry.Register(Neutral.Card, CardType.Card, Gambler.Card);
         }

@@ -33,6 +33,9 @@ namespace FlairsCards
             RarityUtils.AddRarity("Legendary", 0.025f, new Color(1, 1, 0), new Color(0.7f, 0.7f, 0));
             RarityUtils.AddRarity("Masterwork", 0.01f, new Color(0.17f, 0.97f, 1), new Color(0.11f, 0.71f, 0.73f));
             RarityUtils.AddRarity("Unobtainable", 0.0000001f, new Color(0.17f, 0.97f, 1), new Color(0.11f, 0.71f, 0.73f));
+            RarityUtils.AddRarity("CommonClass", 1f, new Color(0.0978f, 0.1088f, 0.1321f), new Color(0.0978f, 0.1088f, 0.1321f));
+            RarityUtils.AddRarity("UncommonClass", 0.4f, new Color(0.1745f, 0.6782f, 1f), new Color(0.1934f, 0.3915f, 0.5189f));
+            RarityUtils.AddRarity("RareClass", 0.1f, new Color(1f, 0.1765f, 0.7567f), new Color(0.5283f, 0.1969f, 0.4321f));
             new Harmony(ModId).PatchAll();
         }
         void Start()
@@ -64,6 +67,7 @@ namespace FlairsCards
 
             //Gambler Class
             CustomCard.BuildCard<Coinflip>((card) => Coinflip.Card = card); 
+            CustomCard.BuildCard<CurseAverse>((card) => CurseAverse.Card = card);
             CustomCard.BuildCard<Gambler>((card) => Gambler.Card = card); 
             CustomCard.BuildCard<LuckyBuff>((card) => LuckyBuff.Card = card);
             CustomCard.BuildCard<NaturalLuck>((card) => NaturalLuck.Card = card);

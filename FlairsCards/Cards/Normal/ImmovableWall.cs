@@ -49,7 +49,7 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Player Health",
+                    stat = "Health",
                     amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
                 },

@@ -16,9 +16,10 @@ namespace FlairsCards.Cards
         public override IEnumerator Init()
         {
             while (!(Gambler.Card)) yield return null;
-            ClassesRegistry.Register(Gambler.Card, CardType.Entry); 
-            ClassesRegistry.Register(NaturalLuck.Card, CardType.Card, Gambler.Card);
+            ClassesRegistry.Register(Gambler.Card, CardType.Entry);
+            ClassesRegistry.Register(Blackjack.Card, CardType.Card, Gambler.Card);
             ClassesRegistry.Register(Coinflip.Card, CardType.Card, Gambler.Card);
+            ClassesRegistry.Register(NaturalLuck.Card, CardType.Card, Gambler.Card);
             ClassesRegistry.Register(LuckyBuff.Card, CardType.Gate, Gambler.Card);
             ClassesRegistry.Register(Wildcard.Card, CardType.Gate, Gambler.Card); 
             ClassesRegistry.Register(CurseAverse.Card, CardType.SubClass, new CardInfo[] { LuckyBuff.Card, Wildcard.Card });

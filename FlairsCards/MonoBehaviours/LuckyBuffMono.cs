@@ -13,6 +13,7 @@ namespace FlairsCards.MonoBehaviours
     {
         private Player player;
         private Gun gun;
+        private GunAmmo gunAmmo;
         private int playerTeamID;
         int num;
         int chance;
@@ -20,6 +21,7 @@ namespace FlairsCards.MonoBehaviours
         {
             player = gameObject.GetComponentInParent<Player>();
             gun = player.GetComponent<Holding>().holdable.GetComponent<Gun>();
+            gunAmmo = gun.GetComponentInChildren<GunAmmo>();
             playerTeamID = player.teamID;
             GameModeManager.AddHook(GameModeHooks.HookPickEnd, PickEnd);
         }
@@ -47,7 +49,7 @@ namespace FlairsCards.MonoBehaviours
 
             if (num == 1)
             {
-                gun.ammo += chance;
+                gunAmmo.maxAmmo += chance;
             }
             else if (num == 2)
             {

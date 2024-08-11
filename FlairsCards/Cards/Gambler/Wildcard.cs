@@ -13,14 +13,15 @@ using FC.Extensions;
 using ModdingUtils.MonoBehaviours;
 using FlairsCards.MonoBehaviours;
 using RarityLib.Utils;
+using UnboundLib.Utils;
+using ModdingUtils.Utils;
 
 
 namespace FlairsCards.Cards
 {
     class Wildcard : CustomCard
     {
-        internal static CardInfo Card = null;
-
+        internal static CardInfo Card = null; 
         public override void Callback()
         {
             gameObject.GetOrAddComponent<ClassNameMono>().className = GamblerClass.name;
@@ -59,7 +60,7 @@ namespace FlairsCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.PoisonGreen;
+            return CardThemeColor.CardThemeColorType.MagicPink;
         }
         public override string GetModName()
         {

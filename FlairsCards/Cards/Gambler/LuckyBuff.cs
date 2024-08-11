@@ -73,7 +73,7 @@ namespace FlairsCards.Cards
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.TechWhite;
+            return CardThemeColor.CardThemeColorType.MagicPink;
         }
         public override string GetModName()
         {

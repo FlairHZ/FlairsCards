@@ -40,21 +40,11 @@ namespace FlairsCards
         }
         void Start()
         {
-            CustomCard.BuildCard<AllOrNothing>();
-            CustomCard.BuildCard<AntiBlock>();
-            CustomCard.BuildCard<AntiGravity>();
             CustomCard.BuildCard<Cannonball>();
             CustomCard.BuildCard<CripplingBullets>();
             CustomCard.BuildCard<EvasiveManuvers>();
-            CustomCard.BuildCard<ExtendedMag>();
-            CustomCard.BuildCard<HeavenlyDraw>();
-            CustomCard.BuildCard<ImmovableWall>();
             CustomCard.BuildCard<LevitatingBullets>();
-            CustomCard.BuildCard<PrecisionShot>();
-            CustomCard.BuildCard<RapidBlock>();
             CustomCard.BuildCard<TankShredder>();
-            CustomCard.BuildCard<Trickshot>();
-            CustomCard.BuildCard<Weightless>();
 
             //Accursed Class
             CustomCard.BuildCard<Accursed>((card) => Accursed.Card = card);
@@ -94,7 +84,6 @@ namespace FlairsCards
             CustomCard.BuildCard<BucklingPressure>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<ClumsyFingers>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<Diseased>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
-            CustomCard.BuildCard<FracturedShield>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<RandomDebuff>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             CustomCard.BuildCard<WeakenedWill>(cardInfo => { CurseManager.instance.RegisterCurse(cardInfo); });
             instance = this;

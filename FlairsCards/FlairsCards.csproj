@@ -107,30 +107,20 @@
     <Compile Include="Cards\Curses\BlindingSpeed.cs" />
     <Compile Include="Cards\Curses\BucklingPressure.cs" />
     <Compile Include="Cards\Curses\ClumsyFingers.cs" />
-    <Compile Include="Cards\Curses\FracturedShield.cs" />
     <Compile Include="Cards\Curses\Diseased.cs" />
     <Compile Include="Cards\Curses\RandomDebuff.cs" />
     <Compile Include="Cards\Curses\WeakenedWill.cs" />
-    <Compile Include="Cards\Normal\Trickshot.cs" />
     <Compile Include="Cards\Speedster\SupersonicCannon.cs" />
     <Compile Include="Cards\Royalty\Royalty.cs" />
     <Compile Include="Cards\Royalty\RoyaltyClass.cs" />
     <Compile Include="Cards\Gambler\LuckyBuff.cs" />
-    <Compile Include="Cards\Normal\RapidBlock.cs" />
     <Compile Include="Cards\Normal\Cannonball.cs" />
     <Compile Include="Cards\Normal\EvasiveManuvers.cs" />
-    <Compile Include="Cards\Normal\ExtendedMag.cs" />
-    <Compile Include="Cards\Normal\ImmovableWall.cs" />
     <Compile Include="Cards\Normal\LevitatingBullets.cs" />
-    <Compile Include="Cards\Normal\PrecisionShot.cs" />
     <Compile Include="Cards\Speedster\Speedster.cs" />
-    <Compile Include="Cards\Normal\AntiBlock.cs" />
     <Compile Include="Cards\Normal\TankShredder.cs" />
     <Compile Include="Cards\Normal\CripplingBullets.cs" />
-    <Compile Include="Cards\Normal\AllOrNothing.cs" />
     <Compile Include="Cards\Testing\Template.cs" />
-    <Compile Include="Cards\Normal\Weightless.cs" />
-    <Compile Include="Cards\Normal\HeavenlyDraw.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="MonoBehaviours\ArroganceMono.cs" />
     <Compile Include="MonoBehaviours\BlackjackMono.cs" />
@@ -145,7 +135,6 @@
     <Compile Include="Utilities\FCDebug.cs" />
     <Compile Include="FlairsCards.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Cards\Normal\AntiGravity.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

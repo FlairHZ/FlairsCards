@@ -19,8 +19,10 @@ namespace FlairsCards.MonoBehaviours
         private Gravity gravity;
         private Block block;
         private CharacterStatModifiers characterStats;
-        CardInfo previousCard;  // Field to track the previous card
+        private CardInfo previousCard;  // Field to track the previous card
+        private CardInfo cursedCard;     // Field to track the cursed card
         int chance;
+
         private void Start()
         {
             player = gameObject.GetComponentInParent<Player>();
@@ -31,7 +33,7 @@ namespace FlairsCards.MonoBehaviours
             gravity = player.GetComponent<Gravity>();
             block = player.GetComponent<Block>();
             characterStats = player.GetComponent<CharacterStatModifiers>();
-            GameModeManager.AddHook(GameModeHooks.HookPickEnd, PickEnd); 
+            GameModeManager.AddHook(GameModeHooks.HookPickEnd, PickEnd);
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, RoundEnd);
         }
 
@@ -42,9 +44,22 @@ namespace FlairsCards.MonoBehaviours
 
         IEnumerator RoundEnd(IGameModeHandler gm)
         {
-            ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, previousCard, ModdingUtils.Utils.Cards.SelectionType.Newest); 
+            // Remove the previous card from the player
+            if (previousCard != null)
+            {
+                ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, previousCard, ModdingUtils.Utils.Cards.SelectionType.Newest);
+            }
+
+            // Remove the cursed card from the player, if applicable
+            if (cursedCard != null)
+            {
+                ModdingUtils.Utils.Cards.instance.RemoveCardFromPlayer(player, cursedCard, ModdingUtils.Utils.Cards.SelectionType.Newest);
+                cursedCard = null;  // Reset the cursed card after removal
+            }
+
             yield break;
         }
+
         IEnumerator PickEnd(IGameModeHandler gm)
         {
             // Draw a new card for this turn
@@ -56,12 +71,15 @@ namespace FlairsCards.MonoBehaviours
             {
                 chance = UnityEngine.Random.Range(-2 + player.data.stats.GetAdditionalData().luck, player.data.stats.GetAdditionalData().luck);
             }
-            CardInfo newCard = null; 
+            CardInfo newCard = null;
 
             if (chance < 0)
             {
                 newCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CursedCondition);
                 CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard); });
+
+                // Track the cursed card separately
+                cursedCard = newCard;
             }
             else if (chance == 0)
             {
@@ -73,13 +91,13 @@ namespace FlairsCards.MonoBehaviours
             {
                 newCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, CommonCondition);
                 ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, newCard, addToCardBar: true);
-                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f); 
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f);
             }
             else if (chance >= 2 && chance <= 3)
             {
                 newCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, UncommonCondition);
                 ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, newCard, addToCardBar: true);
-                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f); 
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f);
             }
             else if (chance >= 4 && chance <= 5)
             {
@@ -91,14 +109,13 @@ namespace FlairsCards.MonoBehaviours
             {
                 newCard = ModdingUtils.Utils.Cards.instance.GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, ExcellentCondition);
                 ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, newCard, addToCardBar: true);
-                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f); 
+                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, newCard, 0f);
             }
 
             previousCard = newCard;  // Update the previous card to the newly drawn card
 
             yield break;
         }
-
 
         private bool CursedCondition(CardInfo card, Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {

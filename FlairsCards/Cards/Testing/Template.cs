@@ -8,7 +8,6 @@ using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
 
-
 namespace FlairsCards.Cards
 {
     class Template : CustomCard

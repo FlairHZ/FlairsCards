@@ -12,11 +12,13 @@ namespace FC.Extensions
         public int curses;
         public int luck;
         public bool curseAverse = false;
+        public bool overCharged = false;
         public CharacterStatModifiersAdditionalData()
         {
             curses = 0;
             luck = 0;
             curseAverse = false;
+            overCharged = false;
         }
     }
     public static class CharacterStatModifiersExtension
@@ -47,7 +49,7 @@ namespace FC.Extensions
             __instance.GetAdditionalData().curses = 0;
             __instance.GetAdditionalData().luck = 0;
             __instance.GetAdditionalData().curseAverse = false;
-
+            __instance.GetAdditionalData().overCharged = false;
         }
     }
 }

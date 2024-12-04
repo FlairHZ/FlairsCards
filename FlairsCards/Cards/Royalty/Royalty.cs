@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModdingUtils.Extensions;
-using ModdingUtils.MonoBehaviours;
+﻿using ClassesManagerReborn.Util;
+using FlairsCards.MonoBehaviours;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using FlairsCards.MonoBehaviours;
-using ClassesManagerReborn.Util;
-using RarityLib.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -44,7 +36,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtRoyalty;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -59,7 +51,7 @@ namespace FlairsCards.Cards
                     positive = true,
                     stat = "Damage per point",
                     amount = "+5%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 }
             };
         }

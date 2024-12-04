@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FlairsCards.Cards;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
+using FlairsCards.MonoBehaviours;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using WillsWackyManagers.Utils;
-using FC.Extensions;
-using ModdingUtils.MonoBehaviours;
-using FlairsCards.MonoBehaviours;
-using RarityLib.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -31,7 +21,7 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            player.gameObject.GetOrAddComponent<NaturalLuckMono>(); 
+            player.gameObject.GetOrAddComponent<NaturalLuckMono>();
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -47,7 +37,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtNaturalLuck;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -55,12 +45,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfoStat[] GetStats()
         {
-            return new CardInfoStat[]
-            {
-                new CardInfoStat()
-                {
-                },
-            };
+            return null;
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {

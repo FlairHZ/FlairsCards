@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FlairsCards.Cards;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using RarityLib.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -31,7 +24,7 @@ namespace FlairsCards.Cards
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            //
+            
         }
         protected override string GetTitle()
         {
@@ -43,7 +36,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtCantTouchThis;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -52,19 +45,19 @@ namespace FlairsCards.Cards
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
-            {                
+            {
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Speed",
                     amount = "+20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "One Shot",
-                    amount = "Bullets",
+                    stat = "Bullets",
+                    amount = "One Shot",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()

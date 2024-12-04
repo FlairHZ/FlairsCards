@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
 using FC.Extensions;
 using RarityLib.Utils;
 using UnboundLib;
@@ -54,7 +49,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtCursedDraw;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -62,9 +57,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfoStat[] GetStats()
         {
-            return new CardInfoStat[]
-            {
-            };
+            return null;
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {

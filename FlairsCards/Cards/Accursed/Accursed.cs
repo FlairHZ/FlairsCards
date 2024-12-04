@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FlairsCards.Cards;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
+using FC.Extensions;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
 using WillsWackyManagers.Utils;
-using FC.Extensions;
-using ModdingUtils.MonoBehaviours;
-using RarityLib.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -31,7 +23,7 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse); }); 
+            CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse); });
             player.data.stats.GetAdditionalData().curses += 1;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -48,7 +40,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtAccursed;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -70,14 +62,14 @@ namespace FlairsCards.Cards
                     positive = true,
                     stat = "Damage",
                     amount = "+80%",
-                    simepleAmount = CardInfoStat.SimpleAmount.lower
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Curse",
                     amount = "+1",
-                    simepleAmount = CardInfoStat.SimpleAmount.lower
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }

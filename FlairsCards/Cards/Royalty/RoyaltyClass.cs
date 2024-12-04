@@ -1,11 +1,5 @@
 ﻿using ClassesManagerReborn;
 using System.Collections;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using UnboundLib.Cards;
-using UnboundLib.GameModes;
-using FlairsCards.Cards;
 
 namespace FlairsCards.Cards
 {
@@ -17,10 +11,10 @@ namespace FlairsCards.Cards
         {
             while (!(Royalty.Card)) yield return null;
             ClassesRegistry.Register(Royalty.Card, CardType.Entry);
-            ClassesRegistry.Register(Arrogance.Card, CardType.Card, Royalty.Card); 
+            ClassesRegistry.Register(Arrogance.Card, CardType.Card, Royalty.Card);
+            ClassesRegistry.Register(Kinghood.Card, CardType.Card, Royalty.Card);
             ClassesRegistry.Register(PersonalBodyguard.Card, CardType.Gate, Royalty.Card);
-
-
+            ClassesRegistry.Register(TaxCut.Card, CardType.SubClass, new CardInfo[] { PersonalBodyguard.Card });
         }
         public override IEnumerator PostInit()
         {

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
-using UnboundLib.Utils;
 using UnityEngine;
-
 
 namespace FlairsCards.Cards
 {
@@ -28,7 +21,7 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
- 
+
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -44,7 +37,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtSpeedster;
         }
         protected override CardInfo.Rarity GetRarity()
         {

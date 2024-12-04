@@ -1,27 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FlairsCards.Cards;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
+using FlairsCards.MonoBehaviours;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using WillsWackyManagers.Utils;
-using FC.Extensions;
-using ModdingUtils.MonoBehaviours;
-using FlairsCards.MonoBehaviours;
-using RarityLib.Utils;
-using UnboundLib.Utils;
-using ModdingUtils.Utils;
-
 
 namespace FlairsCards.Cards
 {
     class Wildcard : CustomCard
     {
-        internal static CardInfo Card = null; 
+        internal static CardInfo Card = null;
         public override void Callback()
         {
             gameObject.GetOrAddComponent<ClassNameMono>().className = GamblerClass.name;
@@ -48,7 +36,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtWildcard;
         }
         protected override CardInfo.Rarity GetRarity()
         {

@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModdingUtils.Extensions;
-using ModdingUtils.MonoBehaviours;
+﻿using ClassesManagerReborn.Util;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using FlairsCards.MonoBehaviours;
-using ClassesManagerReborn.Util;
-using RarityLib.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -29,7 +20,7 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            player.gameObject.GetOrAddComponent<ArroganceMono>();
+
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -42,11 +33,11 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Watch your back";
+            return null;
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtPersonalBodyguard;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -61,7 +52,7 @@ namespace FlairsCards.Cards
                     positive = true,
                     stat = "Health",
                     amount = "+60%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
             };
         }

@@ -1,52 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModdingUtils.Extensions;
-using UnboundLib;
-using UnboundLib.Cards;
-using UnityEngine;
+﻿using ModsPlus;
 
+// I would remove this card so the card pack is only classes
+// But my friends really really love cannonball so it can stay
 
 namespace FlairsCards.Cards
 {
-    class Cannonball : CustomCard
+    public class Cannonball : SimpleCard
     {
-        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
+        internal static CardInfo Card = null;
+        public override CardDetails Details => new CardDetails
         {
-            gun.projectileSize = 1.4f;
-            gun.damage = 1.4f;
-            gun.projectileSpeed = 0.6f;
-        }
-        public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            //
-        }
-        public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-
-        }
-        protected override string GetTitle()
-        {
-            return "Cannonball";
-        }
-        protected override string GetDescription()
-        {
-            return "";
-        }
-        protected override GameObject GetCardArt()
-        {
-            return null;
-        }
-        protected override CardInfo.Rarity GetRarity()
-        {
-            return CardInfo.Rarity.Common;
-        }
-        protected override CardInfoStat[] GetStats()
-        {
-            return new CardInfoStat[]
-            {
+            Title = "Cannonball",
+            Description = "",
+            ModName = FlairsCards.ModInitials,
+            Rarity = CardInfo.Rarity.Common,
+            Theme = CardThemeColor.CardThemeColorType.DefensiveBlue,
+            Art = FlairsCards.CardArtCannonball,
+            Stats = new[]
+                {
                 new CardInfoStat()
                 {
                     positive = true,
@@ -68,15 +39,13 @@ namespace FlairsCards.Cards
                     amount = "-40%",
                     simepleAmount = CardInfoStat.SimpleAmount.smaller
                 },
-            };
-        }
-        protected override CardThemeColor.CardThemeColorType GetTheme()
+            }
+        };
+        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            return CardThemeColor.CardThemeColorType.DefensiveBlue;
-        }
-        public override string GetModName()
-        {
-            return FlairsCards.ModInitials;
+            gun.projectileSize = 1.4f;
+            gun.damage = 1.4f;
+            gun.projectileSpeed = 0.6f;
         }
     }
 }

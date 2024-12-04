@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
 using FC.Extensions;
 using FlairsCards.MonoBehaviours;
 using RarityLib.Utils;
@@ -11,7 +6,6 @@ using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
 using WillsWackyManagers.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -29,9 +23,9 @@ namespace FlairsCards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             float curseFactor = (float)(1 + characterStats.GetAdditionalData().curses * 0.15);
-            statModifiers.movementSpeed = curseFactor; 
+            statModifiers.movementSpeed = curseFactor;
             statModifiers.health = curseFactor;
-            characterStats.GetAdditionalData().curses = 0; 
+            characterStats.GetAdditionalData().curses = 0;
             CurseManager.instance.RemoveAllCurses(player);
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -49,7 +43,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtSadistic;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -64,14 +58,14 @@ namespace FlairsCards.Cards
                     positive = true,
                     stat = "Speed per curse",
                     amount = "+15%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                }      ,         
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
+                }      ,
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Damage per curse",
                     amount = "+15%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 }
             };
         }

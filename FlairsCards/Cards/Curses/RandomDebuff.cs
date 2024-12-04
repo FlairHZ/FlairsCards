@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModdingUtils.Extensions;
-using UnboundLib;
-using UnboundLib.Cards;
+﻿using UnboundLib.Cards;
 using UnityEngine;
 using WillsWackyManagers.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -21,10 +13,10 @@ namespace FlairsCards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             System.Random rnd = new System.Random();
-            int num = rnd.Next(1, 5);  
+            int num = rnd.Next(1, 5);
 
-            if (num == 1) 
-            { 
+            if (num == 1)
+            {
                 // Lucky number, nothing happens
             }
             else if (num == 2)

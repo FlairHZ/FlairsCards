@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FlairsCards.Cards;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using WillsWackyManagers.Utils;
-using FC.Extensions;
-using ModdingUtils.MonoBehaviours;
-using RarityLib.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -45,7 +35,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtNeutral;
         }
         protected override CardInfo.Rarity GetRarity()
         {

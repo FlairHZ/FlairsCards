@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModdingUtils.Extensions;
-using UnboundLib;
-using UnboundLib.Cards;
+﻿using UnboundLib.Cards;
 using UnityEngine;
-using PSA.Extensions;
 using WillsWackyManagers.Utils;
-
 
 namespace FlairsCards.Cards
 {

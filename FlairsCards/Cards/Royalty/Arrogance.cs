@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModdingUtils.Extensions;
-using ModdingUtils.MonoBehaviours;
+﻿using ClassesManagerReborn.Util;
+using FlairsCards.MonoBehaviours;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using FlairsCards.MonoBehaviours;
-using ClassesManagerReborn.Util;
-using RarityLib.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -41,11 +33,11 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Losing to peasants should never happen";
+            return "Losing hurts";
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtArrogance;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -60,14 +52,14 @@ namespace FlairsCards.Cards
                     positive = true,
                     stat = "Damage/Speed per point won",
                     amount = "+5%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },                
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
+                },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Damage/Speed per point lost",
                     amount = "-7.5%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.slightlyLower
                 }
             };
         }

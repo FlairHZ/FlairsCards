@@ -1,11 +1,5 @@
 ﻿using ClassesManagerReborn;
 using System.Collections;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using UnboundLib.Cards;
-using UnboundLib.GameModes;
-using FlairsCards.Cards;
 
 namespace FlairsCards.Cards
 {
@@ -20,7 +14,7 @@ namespace FlairsCards.Cards
             ClassesRegistry.Register(Adrenaline.Card, CardType.Card, Speedster.Card);
             ClassesRegistry.Register(EnergyDrink.Card, CardType.Gate, Speedster.Card);
             ClassesRegistry.Register(SupersonicCannon.Card, CardType.Gate, Speedster.Card);
-            ClassesRegistry.Register(EnergyConverter.Card, CardType.SubClass, new CardInfo[] { EnergyDrink.Card, SupersonicCannon.Card }); 
+            ClassesRegistry.Register(EnergyConverter.Card, CardType.SubClass, new CardInfo[] { EnergyDrink.Card, SupersonicCannon.Card });
             ClassesRegistry.Register(CantTouchThis.Card, CardType.SubClass, new CardInfo[] { EnergyDrink.Card, SupersonicCannon.Card });
 
         }

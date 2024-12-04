@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModdingUtils.Extensions;
-using UnboundLib;
-using UnboundLib.Cards;
+﻿using UnboundLib.Cards;
 using UnityEngine;
 using WillsWackyManagers.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -21,7 +13,7 @@ namespace FlairsCards.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-        
+
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -53,7 +45,7 @@ namespace FlairsCards.Cards
                     positive = false,
                     stat = "Reload Time",
                     amount = "+50%",
-                    simepleAmount = CardInfoStat.SimpleAmount.lower
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
             };
         }

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
+using FC.Extensions;
 using FlairsCards.MonoBehaviours;
-using ModdingUtils.Extensions;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-
 
 namespace FlairsCards.Cards
 {
@@ -43,7 +37,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtFallenAngel;
         }
         protected override CardInfo.Rarity GetRarity()
         {

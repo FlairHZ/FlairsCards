@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
 using FC.Extensions;
+using FlairsCards.MonoBehaviours;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -23,7 +19,6 @@ namespace FlairsCards.Cards
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
             chosenCard = cardInfo;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -53,7 +48,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtUnluckySouls;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -61,12 +56,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfoStat[] GetStats()
         {
-            return new CardInfoStat[]
-            {
-                new CardInfoStat()
-                {
-                }
-            };
+            return null;
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {

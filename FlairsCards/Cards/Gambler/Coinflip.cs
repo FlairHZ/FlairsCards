@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FlairsCards.Cards;
-using ClassesManagerReborn.Util;
+﻿using ClassesManagerReborn.Util;
+using FlairsCards.MonoBehaviours;
+using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using WillsWackyManagers.Utils;
-using FC.Extensions;
-using ModdingUtils.MonoBehaviours;
-using FlairsCards.MonoBehaviours;
-using RarityLib.Utils;
-
 
 namespace FlairsCards.Cards
 {
@@ -44,11 +34,11 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "50/50 odds of changing your luck and health at the end of each round";
+            return "50/50 odds of changing your luck and projectile speed at the end of each round";
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return FlairsCards.CardArtCoinflip;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -57,19 +47,19 @@ namespace FlairsCards.Cards
         protected override CardInfoStat[] GetStats()
         {
             return new CardInfoStat[]
-            {               
+            {
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Health",
-                    amount = "+25%",
+                    stat = "Projectile Speed",
+                    amount = "±25%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()
-                {                    
+                {
                     positive = true,
                     stat = "Luck",
-                    amount = "+???-",
+                    amount = "±1",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
             };

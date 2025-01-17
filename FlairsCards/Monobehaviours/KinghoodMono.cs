@@ -29,7 +29,7 @@ namespace FlairsCards.MonoBehaviours
         IEnumerator RoundEnd(IGameModeHandler gm)
         {
             currentScore.Clear();
-            currentScore = PlayerManager.instance.players.Select(p => p.teamID).Distinct().Select(ID => GameModeManager.CurrentHandler.GetTeamScore(ID)).ToList();
+            currentScore = PlayerManager.instance.players.Select(player => player.teamID).Distinct().Select(ID => GameModeManager.CurrentHandler.GetTeamScore(ID)).ToList();
 
             foreach (var score in currentScore)
             {

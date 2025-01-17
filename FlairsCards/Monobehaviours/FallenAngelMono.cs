@@ -4,7 +4,6 @@ using System.Linq;
 using UnboundLib.GameModes;
 using UnityEngine;
 
-
 namespace FlairsCards.MonoBehaviours
 {
     class FallenAngelMono : MonoBehaviour

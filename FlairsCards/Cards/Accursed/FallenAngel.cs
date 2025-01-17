@@ -1,6 +1,7 @@
 ﻿using ClassesManagerReborn.Util;
 using FC.Extensions;
 using FlairsCards.MonoBehaviours;
+using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -18,14 +19,17 @@ namespace FlairsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             player.gameObject.GetOrAddComponent<FallenAngelMono>();
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             Destroy(player.gameObject.GetOrAddComponent<FallenAngelMono>());
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
         }
         protected override string GetTitle()
         {
@@ -33,7 +37,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gain a revive for every 4 curses you have";
+            return "Gain a revive for every 4 curses you have at the time of drawing this card";
         }
         protected override GameObject GetCardArt()
         {

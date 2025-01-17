@@ -1,5 +1,6 @@
 ﻿using ClassesManagerReborn.Util;
 using FlairsCards.MonoBehaviours;
+using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -18,15 +19,16 @@ namespace FlairsCards.Cards
         {
             block.forceToAdd = -20f;
             statModifiers.health = 1.2f;
-            block.cdAdd = -0.25f;
+            block.cdAdd = 0.25f;
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
         }
         protected override string GetTitle()
         {
@@ -59,7 +61,7 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Block Cooldown",
-                    amount = "-0.25s",
+                    amount = "+0.25s",
                     simepleAmount = CardInfoStat.SimpleAmount.slightlyLower
                 }
             };

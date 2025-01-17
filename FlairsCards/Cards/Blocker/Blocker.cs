@@ -1,4 +1,5 @@
 ﻿using ClassesManagerReborn.Util;
+using FlairsCards.Utilities;
 using ModsPlus;
 using RarityLib.Utils;
 using UnboundLib;
@@ -26,7 +27,7 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+25%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()
@@ -41,8 +42,9 @@ namespace FlairsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            statModifiers.health = 1.25f;
+            statModifiers.health = 1.3f;
             block.cdAdd = -0.25f;
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
     }
 }

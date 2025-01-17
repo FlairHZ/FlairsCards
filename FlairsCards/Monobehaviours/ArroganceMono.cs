@@ -27,7 +27,6 @@ namespace FlairsCards.MonoBehaviours
 
         IEnumerator RoundEnd(IGameModeHandler gm)
         {
-            // Reset state if necessary
             yield break;
         }
 

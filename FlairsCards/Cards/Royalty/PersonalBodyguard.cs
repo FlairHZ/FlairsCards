@@ -1,4 +1,6 @@
 ﻿using ClassesManagerReborn.Util;
+using FlairsCards.Monobehaviours;
+using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -16,15 +18,18 @@ namespace FlairsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            statModifiers.health = 1.6f;
+            statModifiers.health = 1.2f;
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            player.gameObject.GetOrAddComponent<PersonalBodyguardMono>();
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            Destroy(player.gameObject.GetOrAddComponent<PersonalBodyguardMono>());
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
         }
 
         protected override string GetTitle()
@@ -33,7 +38,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return null;
+            return "The first instance of damage you take deals no damage (on hit effects still occur)";
         }
         protected override GameObject GetCardArt()
         {
@@ -51,8 +56,8 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+60%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
+                    amount = "+20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 },
             };
         }

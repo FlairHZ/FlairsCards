@@ -15,6 +15,7 @@ namespace FlairsCards.Monobehaviours
         private GunAmmo gunAmmo;
         private float oldSpeed;
         private float oldDamage;
+        private float oldReload;
         private Coroutine effectCoroutine;
         private void Start()
         {
@@ -35,6 +36,7 @@ namespace FlairsCards.Monobehaviours
         {
             oldSpeed = player.data.stats.movementSpeed;
             oldDamage = gun.damage;
+            oldReload = gunAmmo.reloadTimeAdd;
 
             effectCoroutine = StartCoroutine(RoundStartEffect());
 
@@ -51,6 +53,7 @@ namespace FlairsCards.Monobehaviours
 
             player.data.stats.movementSpeed = oldSpeed;
             gun.damage = oldDamage;
+            gunAmmo.reloadTimeAdd = oldReload;
 
             yield break;
         }

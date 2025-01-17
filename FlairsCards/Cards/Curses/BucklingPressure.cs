@@ -29,7 +29,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Your knees buckle under pressure";
+            return null;
         }
         protected override GameObject GetCardArt()
         {

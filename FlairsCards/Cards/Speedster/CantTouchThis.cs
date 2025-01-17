@@ -24,7 +24,7 @@ namespace FlairsCards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             gunAmmo.maxAmmo = 1;
-            characterStats.movementSpeed = 1.2f;
+            characterStats.movementSpeed += 0.2f;
             statModifiers.health = 0.75f;
             player.gameObject.GetOrAddComponent<CantTouchThisMono>();
             FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");

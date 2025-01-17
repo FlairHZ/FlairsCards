@@ -17,27 +17,42 @@ namespace FlairsCards.Monobehaviours
         private Player player;
         private Coroutine effectCoroutine;
         private bool isActive = false;
+        private float oldSpeed = 1.35f;
+        private bool first = false;
         private void Start()
         {
             player = GetComponent<Player>();
             player.data.stats.WasDealtDamageAction += OnDamage;
             GameModeManager.AddHook(GameModeHooks.HookPointEnd, PointEnd);
+            GameModeManager.AddHook(GameModeHooks.HookPickEnd, PickEnd);
         }
         private void OnDestroy()
         {
             GameModeManager.RemoveHook(GameModeHooks.HookPointEnd, PointEnd);
+            GameModeManager.RemoveHook(GameModeHooks.HookPickEnd, PickEnd);
             player.data.stats.WasDealtDamageAction -= OnDamage;
         }
         IEnumerator PointEnd(IGameModeHandler gm)
         {
+            if (isActive)
+            {
+                isActive = false;
+                if (player.data.stats.movementSpeed - 0.4f >= (oldSpeed - 0.1f))
+                {
+                    player.data.stats.movementSpeed -= 0.4f;
+                }
+            }
             if (effectCoroutine != null)
             {
                 StopCoroutine(effectCoroutine);
                 effectCoroutine = null;
-                isActive = false;
-                player.data.stats.movementSpeed -= 0.5f;
             }
+            yield break;
+        }
 
+        IEnumerator PickEnd(IGameModeHandler gm)
+        {
+            oldSpeed = player.data.stats.movementSpeed;
             yield break;
         }
         private void OnDamage(Vector2 damage, bool selfDamage)
@@ -50,8 +65,8 @@ namespace FlairsCards.Monobehaviours
         private IEnumerator RoundStartEffect()
         {
             isActive = true;
-            player.data.stats.movementSpeed += 0.5f;
-            if (player.data.health >= 0f)
+            player.data.stats.movementSpeed += 0.4f;
+            if (player.data.health > 0f)
             {
                 player.data.health = Mathf.Min(player.data.health + Mathf.Round((player.data.maxHealth / (20/3))), player.data.maxHealth);
             }
@@ -62,7 +77,7 @@ namespace FlairsCards.Monobehaviours
             }
             finally
             {
-                player.data.stats.movementSpeed -= 0.5f;
+                player.data.stats.movementSpeed -= 0.4f;
                 player.data.health = Mathf.Max(player.data.health - Mathf.Round((player.data.maxHealth / (20/3))), 0f);
                 if (player.data.health == 0f)
                 {

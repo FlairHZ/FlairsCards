@@ -60,6 +60,7 @@ namespace FlairsCards.Monobehaviours
             player.data.stats.movementSpeed += 0.5f;
             gun.damage += 0.5f;
             gunAmmo.reloadTimeAdd -= 0.5f;
+
             yield return new WaitForSeconds(10);
 
             player.data.stats.movementSpeed -= 1f;

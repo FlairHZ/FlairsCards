@@ -27,7 +27,7 @@ namespace FlairsCards.Cards
                 {
                     positive = true,                    
                     stat = "Movement speed per block",
-                    amount = "+10%",
+                    amount = "+15%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf,
                 },
                 new CardInfoStat()
@@ -52,7 +52,7 @@ public class SpeedOnBlockEffect : CardEffect
     {
         StatManager.Apply(player, new StatChanges
         {
-            MovementSpeed = 1.1f
+            MovementSpeed = 1.15f
         });
     }
 }

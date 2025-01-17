@@ -45,7 +45,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return RarityUtils.GetRarity("CommonClass");
+            return RarityUtils.GetRarity("RareClass");
         }
         protected override CardInfoStat[] GetStats()
         {

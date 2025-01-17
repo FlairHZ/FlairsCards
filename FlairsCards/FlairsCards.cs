@@ -16,12 +16,14 @@ using Jotunn.Utils;
 
 namespace FlairsCards
 {
-    [BepInDependency("com.willis.rounds.unbound")]
-    [BepInDependency("pykess.rounds.plugins.moddingutils")]
-    [BepInDependency("pykess.rounds.plugins.cardchoicespawnuniquecardpatch")]
-    [BepInDependency("root.classes.manager.reborn")]
-    [BepInDependency("com.willis.rounds.modsplus")]
-    [BepInDependency("root.classes.manager.reborn")]
+    [BepInDependency("com.willis.rounds.unbound", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("pykess.rounds.plugins.moddingutils", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("pykess.rounds.plugins.cardchoicespawnuniquecardpatch", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("root.classes.manager.reborn", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.willis.rounds.modsplus", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.Poppycars.PSA.Id", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.willuwontu.rounds.managers", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.root.projectile.size.patch", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin(ModId, ModName, Version)]
     [BepInProcess("Rounds.exe")]
     public class FlairsCards : BaseUnityPlugin
@@ -85,7 +87,7 @@ namespace FlairsCards
         {
             RarityUtils.AddRarity("Unobtainable", 0.000000001f, new Color(0.17f, 0.97f, 1), new Color(0.11f, 0.71f, 0.73f));
             RarityUtils.AddRarity("CommonClass", 1.5f, new Color(0.0978f, 0.1088f, 0.1321f), new Color(0.0978f, 0.1088f, 0.1321f));
-            RarityUtils.AddRarity("UncommonClass", 0.6f, new Color(0.1745f, 0.6782f, 1f), new Color(0.1934f, 0.3915f, 0.5189f));
+            RarityUtils.AddRarity("UncommonClass", 0.8f, new Color(0.1745f, 0.6782f, 1f), new Color(0.1934f, 0.3915f, 0.5189f));
             RarityUtils.AddRarity("RareClass", 0.3f, new Color(1f, 0.1765f, 0.7567f), new Color(0.5283f, 0.1969f, 0.4321f));
             new Harmony(ModId).PatchAll();
         }

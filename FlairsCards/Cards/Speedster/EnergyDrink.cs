@@ -37,7 +37,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gain massive boosts the first 8 seconds, but crash after";
+            return "Gain massive boosts the first 10 seconds, but crash after";
         }
         protected override GameObject GetCardArt()
         {

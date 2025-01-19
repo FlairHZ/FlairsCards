@@ -1,5 +1,4 @@
 ﻿using ClassesManagerReborn.Util;
-using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -17,17 +16,16 @@ namespace FlairsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            statModifiers.movementSpeed = 1.35f;
+            statModifiers.movementSpeed = 1.2f;
             gun.damage = 0.9f;
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
+            //
         }
         protected override string GetTitle()
         {
@@ -53,7 +51,7 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Speed",
-                    amount = "+35%",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()

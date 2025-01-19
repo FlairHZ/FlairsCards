@@ -44,11 +44,7 @@ namespace FlairsCards.MonoBehaviours
             playerHand += playerNumber;
 
             // Players hand is above 21, auto lose without need to check for dealer
-            if (playerHand > 21 && player.data.stats.GetAdditionalData().curseAverse == true)
-            {
-                playerHand = 17;
-            }
-            else if (playerHand > 21)
+            if (playerHand > 21)
             {
                 gun.damage -= 0.1f;
             }

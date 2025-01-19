@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace FlairsCards.Utilities
 {
@@ -10,7 +11,7 @@ namespace FlairsCards.Utilities
         {
             if (Config.isDebugBuild)
             {
-                UnityEngine.Debug.Log(message);
+                //UnityEngine.Debug.Log(message);
             }
 
         }

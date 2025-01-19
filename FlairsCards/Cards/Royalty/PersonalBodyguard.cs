@@ -1,6 +1,4 @@
 ﻿using ClassesManagerReborn.Util;
-using FlairsCards.Monobehaviours;
-using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -18,18 +16,15 @@ namespace FlairsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            statModifiers.health = 1.2f;
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            statModifiers.health = 1.6f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            player.gameObject.GetOrAddComponent<PersonalBodyguardMono>();
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            Destroy(player.gameObject.GetOrAddComponent<PersonalBodyguardMono>());
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
+
         }
 
         protected override string GetTitle()
@@ -38,7 +33,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "The first instance of damage you take deals no damage (on hit effects still occur)";
+            return null;
         }
         protected override GameObject GetCardArt()
         {
@@ -46,7 +41,7 @@ namespace FlairsCards.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return RarityUtils.GetRarity("UncommonClass");
+            return RarityUtils.GetRarity("CommonClass");
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -56,8 +51,8 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
+                    amount = "+60%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
             };
         }

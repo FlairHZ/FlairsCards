@@ -16,7 +16,7 @@ namespace FlairsCards.MonoBehaviours
         }
         void Update()
         {
-            block.cdMultiplier = (float)(0.5 * (0.5 + Math.Pow(player.data.HealthPercentage - 0.2, 2) / 0.6534));
+            block.cdMultiplier = (float)(0.5 * (0.5 + Math.Pow(player.data.HealthPercentage - 0.01, 2) / 0.6534));
             player.data.stats.GetAdditionalData().overCharged = true; // Blanket solution, make it actually better later
         }
     }

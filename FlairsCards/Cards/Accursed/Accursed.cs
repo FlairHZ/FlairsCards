@@ -1,6 +1,5 @@
 ﻿using ClassesManagerReborn.Util;
 using FC.Extensions;
-using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -20,18 +19,16 @@ namespace FlairsCards.Cards
         {
             cardInfo.allowMultiple = false;
             statModifiers.movementSpeed = 1.2f;
-            gun.damage = 1.7f;
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            gun.damage = 1.8f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             CurseManager.instance.CursePlayer(player, (curse) => { ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, curse); });
             player.data.stats.GetAdditionalData().curses += 1;
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
+
         }
         protected override string GetTitle()
         {
@@ -64,7 +61,7 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+70%",
+                    amount = "+80%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat()

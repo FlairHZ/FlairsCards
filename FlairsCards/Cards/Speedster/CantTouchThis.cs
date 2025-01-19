@@ -1,6 +1,4 @@
 ﻿using ClassesManagerReborn.Util;
-using FlairsCards.Monobehaviours;
-using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -17,21 +15,16 @@ namespace FlairsCards.Cards
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            cardInfo.allowMultiple = false;
             gun.percentageDamage = 1f;
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             gunAmmo.maxAmmo = 1;
-            characterStats.movementSpeed += 0.2f;
-            statModifiers.health = 0.75f;
-            player.gameObject.GetOrAddComponent<CantTouchThisMono>();
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            characterStats.movementSpeed = 1.2f;
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            Destroy(player.gameObject.GetOrAddComponent<CantTouchThisMono>());
+            
         }
         protected override string GetTitle()
         {
@@ -39,7 +32,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Finish your opponents off in one hit";
+            return "Juke your opponents and finish them off in one hit";
         }
         protected override GameObject GetCardArt()
         {
@@ -73,13 +66,6 @@ namespace FlairsCards.Cards
                     stat = "Bullet",
                     amount = "One",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "HP",
-                    amount = "-25%",
-                    simepleAmount = CardInfoStat.SimpleAmount.lower
                 }
             };
         }

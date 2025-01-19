@@ -11,7 +11,7 @@ namespace FlairsCards.Cards
         {
             while (!(Gambler.Card)) yield return null;
             ClassesRegistry.Register(Gambler.Card, CardType.Entry);
-            //ClassesRegistry.Register(Blackjack.Card, CardType.Card, Gambler.Card);
+            ClassesRegistry.Register(Blackjack.Card, CardType.Card, Gambler.Card);
             ClassesRegistry.Register(Coinflip.Card, CardType.Card, Gambler.Card);
             ClassesRegistry.Register(NaturalLuck.Card, CardType.Card, Gambler.Card);
             ClassesRegistry.Register(LuckyBuff.Card, CardType.Gate, Gambler.Card);

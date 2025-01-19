@@ -20,11 +20,7 @@ namespace FlairsCards.MonoBehaviours
 
         void Update()
         {
-            if (!block.IsOnCD() && input.shieldWasPressed)
-            {
-                block.RPCA_DoBlock(true);
-            }
-            else if (block.IsOnCD() && player.data.HealthPercentage > 0.2 && input.shieldWasPressed)
+            if (block.IsOnCD() && player.data.HealthPercentage > 0.2 && input.shieldWasPressed)
             {
                 player.data.health -= player.data.maxHealth / 5;
                 block.RPCA_DoBlock(true);

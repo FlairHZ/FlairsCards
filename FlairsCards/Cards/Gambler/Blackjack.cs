@@ -1,6 +1,5 @@
 ﻿using ClassesManagerReborn.Util;
 using FlairsCards.MonoBehaviours;
-using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -20,17 +19,14 @@ namespace FlairsCards.Cards
         {
             cardInfo.allowMultiple = false;
             statModifiers.health = 1.20f;
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             player.gameObject.GetOrAddComponent<BlackjackMono>();
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             Destroy(player.gameObject.GetOrAddComponent<BlackjackMono>());
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
         }
         protected override string GetTitle()
         {
@@ -38,7 +34,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Play against the dealer passively and gain damage depending on how you fare";
+            return "Play against the dealer and gain rewards depending on how you fare";
         }
         protected override GameObject GetCardArt()
         {

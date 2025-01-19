@@ -62,7 +62,7 @@ namespace FlairsCards.MonoBehaviours
             }
             else if (num == 2)
             {
-                gun.damage += (float)(0.25 + chance * 0.1);
+                gun.damage += (float)(1.0 + chance * 0.1);
             }
             else if (num == 3)
             {

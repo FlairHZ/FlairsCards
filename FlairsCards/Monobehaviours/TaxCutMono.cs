@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnboundLib.GameModes;
 using UnityEngine;
@@ -16,7 +15,6 @@ namespace FlairsCards.MonoBehaviours
         private Gravity gravity;
         private Block block;
         private CharacterStatModifiers characterStats;
-        private int playerTeamID;
         private CardInfo previousCard;  // Field to track the previous card
 
         private void Start()
@@ -29,7 +27,6 @@ namespace FlairsCards.MonoBehaviours
             gravity = player.GetComponent<Gravity>();
             block = player.GetComponent<Block>();
             characterStats = player.GetComponent<CharacterStatModifiers>();
-            playerTeamID = player.teamID;
             GameModeManager.AddHook(GameModeHooks.HookPickEnd, PickEnd);
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, RoundEnd);
         }
@@ -49,15 +46,10 @@ namespace FlairsCards.MonoBehaviours
 
         IEnumerator PickEnd(IGameModeHandler gm)
         {
-            int[] roundWinners = gm.GetPointWinners();
-            bool isWinner = roundWinners.Contains(playerTeamID);
-            if (isWinner)
-            {
-                CardInfo randomDraw = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, Condition);
-                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomDraw, addToCardBar: true);
-                ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, randomDraw, 0f);
-                previousCard = randomDraw;
-            }
+            CardInfo randomDraw = ModdingUtils.Utils.Cards.instance.NORARITY_GetRandomCardWithCondition(player, gun, gunAmmo, data, health, gravity, block, characterStats, Condition);
+            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomDraw, addToCardBar: true);
+            ModdingUtils.Utils.CardBarUtils.instance.ShowImmediate(player, randomDraw, 0f);
+            previousCard = randomDraw;
             yield break;
         }
 

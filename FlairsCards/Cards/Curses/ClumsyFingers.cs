@@ -1,5 +1,4 @@
-﻿using FlairsCards.Utilities;
-using UnboundLib.Cards;
+﻿using UnboundLib.Cards;
 using UnityEngine;
 using WillsWackyManagers.Utils;
 
@@ -11,15 +10,14 @@ namespace FlairsCards.Cards
         {
             gun.reloadTimeAdd = 1.5f;
             cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
+
         }
 
         protected override string GetTitle()

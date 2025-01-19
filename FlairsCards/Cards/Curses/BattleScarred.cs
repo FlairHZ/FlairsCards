@@ -1,5 +1,4 @@
-﻿using FlairsCards.Utilities;
-using UnboundLib.Cards;
+﻿using UnboundLib.Cards;
 using UnityEngine;
 using WillsWackyManagers.Utils;
 
@@ -12,15 +11,14 @@ namespace FlairsCards.Cards
             gun.damage = 0.7f;
             gun.projectileSpeed = 0.7f;
             cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
+
         }
 
         protected override string GetTitle()
@@ -29,7 +27,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return null;
+            return "Let's go gambling";
         }
         protected override GameObject GetCardArt()
         {
@@ -46,7 +44,7 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Bullet Speed",
+                    stat = "Projectile Speed",
                     amount = "-30%",
                     simepleAmount = CardInfoStat.SimpleAmount.lower
                 },

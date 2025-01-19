@@ -1,5 +1,4 @@
 ﻿using ClassesManagerReborn.Util;
-using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -18,16 +17,15 @@ namespace FlairsCards.Cards
         {
             cardInfo.allowMultiple = false;
             statModifiers.movementSpeed = 1.2f;
-            gun.projectileSpeed = 1.5f;
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            gun.projectileSpeed = 1.4f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
+            
         }
         protected override string GetTitle()
         {
@@ -35,7 +33,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Pew pew";
+            return "In the blink of an eye";
         }
         protected override GameObject GetCardArt()
         {
@@ -59,8 +57,8 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Bullet Speed",
-                    amount = "+50%",
+                    stat = "Projectile Speed",
+                    amount = "+40%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 }
             };

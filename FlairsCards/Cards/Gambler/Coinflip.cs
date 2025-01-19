@@ -1,6 +1,5 @@
 ﻿using ClassesManagerReborn.Util;
 using FlairsCards.MonoBehaviours;
-using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -20,17 +19,14 @@ namespace FlairsCards.Cards
         {
             cardInfo.allowMultiple = false;
             statModifiers.health = 1.25f;
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             player.gameObject.GetOrAddComponent<CoinflipMono>();
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             Destroy(player.gameObject.GetOrAddComponent<CoinflipMono>());
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
         }
         protected override string GetTitle()
         {
@@ -38,7 +34,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "50/50 odds of changing your luck and bullet speed at the end of each round";
+            return "50/50 odds of changing your luck and projectile speed at the end of each round";
         }
         protected override GameObject GetCardArt()
         {
@@ -55,7 +51,7 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Bullet Speed",
+                    stat = "Projectile Speed",
                     amount = "±25%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },

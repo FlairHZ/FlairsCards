@@ -2,7 +2,6 @@
 using RarityLib.Utils;
 using UnboundLib;
 using ModsPlus;
-using FlairsCards.Utilities;
 
 namespace FlairsCards.Cards
 {
@@ -29,20 +28,12 @@ namespace FlairsCards.Cards
                     stat = "Movement speed per block",
                     amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf,
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Block Cooldown",
-                    amount = "+0.25s",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf,
                 }
             }
         };
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
     }
 }

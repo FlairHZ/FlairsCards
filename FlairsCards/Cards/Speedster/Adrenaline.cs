@@ -1,7 +1,4 @@
 ﻿using ClassesManagerReborn.Util;
-using FlairsCards.Monobehaviours;
-using FlairsCards.MonoBehaviours;
-using FlairsCards.Utilities;
 using RarityLib.Utils;
 using UnboundLib;
 using UnboundLib.Cards;
@@ -19,17 +16,16 @@ namespace FlairsCards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
+            statModifiers.movementSpeed = 1.2f;
+            statModifiers.health = 1.2f;
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            player.gameObject.GetOrAddComponent<AdrenalineMono>();
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            Destroy(player.gameObject.GetOrAddComponent<AdrenalineMono>());
-            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
+            
         }
         protected override string GetTitle()
         {
@@ -37,7 +33,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gain brief buffs when taking damage";
+            return "Peak performance";
         }
         protected override GameObject GetCardArt()
         {
@@ -55,14 +51,14 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Speed",
-                    amount = "+40%",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Temp HP Shield",
-                    amount = "+15%",
+                    stat = "Health",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 }
             };

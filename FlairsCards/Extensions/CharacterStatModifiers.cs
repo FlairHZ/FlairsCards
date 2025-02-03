@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using FlairsCards.Cards;
 using HarmonyLib;
+using Photon.Pun.Simple.Pooling;
 
 namespace FC.Extensions
 {

@@ -1,4 +1,5 @@
-﻿using ModsPlus;
+﻿using FlairsCards.Utilities;
+using ModsPlus;
 
 // I would remove this card so the card pack is only classes
 // But my friends really really love cannonball so it can stay
@@ -22,15 +23,15 @@ namespace FlairsCards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+40%",
+                    amount = "+25%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat()
                 {
                     positive = true,
                     stat = "Projectile Size",
-                    amount = "+40%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
+                    amount = "+45%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
                 },
                 new CardInfoStat()
                 {
@@ -43,9 +44,10 @@ namespace FlairsCards.Cards
         };
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.projectileSize = 1.4f;
-            gun.damage = 1.4f;
+            gun.projectileSize = 1.45f;
+            gun.damage = 1.25f;
             gun.projectileSpeed = 0.6f;
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
     }
 }

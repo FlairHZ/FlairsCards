@@ -1,4 +1,5 @@
-﻿using UnboundLib.Cards;
+﻿using FlairsCards.Utilities;
+using UnboundLib.Cards;
 using UnityEngine;
 using WillsWackyManagers.Utils;
 
@@ -6,20 +7,18 @@ namespace FlairsCards.Cards
 {
     class RandomDebuff : CustomCard
     {
+        // Change this later to the colored version
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             System.Random rnd = new System.Random();
             int num = rnd.Next(1, 5);
 
-            if (num == 1)
-            {
-                // Lucky number, nothing happens
-            }
-            else if (num == 2)
+            if (num == 2)
             {
                 gun.damage = 0.8f;
             }
@@ -27,23 +26,25 @@ namespace FlairsCards.Cards
             {
                 statModifiers.movementSpeed = 0.8f;
             }
-            else
+            else if (num == 4)
             {
                 statModifiers.gravity = 1.6f;
             }
+
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been removed to player {player.playerID}.");
         }
 
         protected override string GetTitle()
         {
-            return "<color=#ff000fff>?</color><color=#ff000fff>?</color><color=#ff000fff>?</color>";
+            return "Random Debuff";
         }
         protected override string GetDescription()
         {
-            return "";
+            return null;
         }
         protected override GameObject GetCardArt()
         {

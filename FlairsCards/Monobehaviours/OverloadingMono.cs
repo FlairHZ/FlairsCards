@@ -22,7 +22,7 @@ namespace FlairsCards.MonoBehaviours
             }
             else
             {
-                block.cdMultiplier = (float)(0.5 * (1 + Math.Pow(player.data.HealthPercentage - 0.2, 2) / 0.64));
+                block.cdMultiplier = (float) ((0.625 * player.data.HealthPercentage) + 0.375);
             }
         }
     }

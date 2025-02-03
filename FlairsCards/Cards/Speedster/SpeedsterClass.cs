@@ -14,9 +14,8 @@ namespace FlairsCards.Cards
             ClassesRegistry.Register(Adrenaline.Card, CardType.Card, Speedster.Card);
             ClassesRegistry.Register(EnergyDrink.Card, CardType.Gate, Speedster.Card);
             ClassesRegistry.Register(SupersonicCannon.Card, CardType.Gate, Speedster.Card);
-            ClassesRegistry.Register(EnergyConverter.Card, CardType.SubClass, new CardInfo[] { EnergyDrink.Card, SupersonicCannon.Card });
-            ClassesRegistry.Register(CantTouchThis.Card, CardType.SubClass, new CardInfo[] { EnergyDrink.Card, SupersonicCannon.Card });
-
+            ClassesRegistry.Register(EnergyConverter.Card, CardType.SubClass, new CardInfo[] { EnergyDrink.Card });
+            ClassesRegistry.Register(CantTouchThis.Card, CardType.SubClass, new CardInfo[] { Adrenaline.Card });
         }
         public override IEnumerator PostInit()
         {

@@ -18,7 +18,6 @@ namespace FlairsCards.Monobehaviours
         private Coroutine effectCoroutine;
         private bool isActive = false;
         private float oldSpeed = 1.35f;
-        private bool first = false;
         private void Start()
         {
             player = GetComponent<Player>();

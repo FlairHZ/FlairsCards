@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Linq;
 using UnboundLib.GameModes;
 using UnityEngine;
@@ -10,19 +11,25 @@ namespace FlairsCards.MonoBehaviours
         private Player player;
         private Block block;
         private GeneralInput input;
-
+        private HealthHandler healthHandler;
         private void Start()
         {
             player = gameObject.GetComponentInParent<Player>();
             block = player.GetComponent<Block>(); 
             input = player.GetComponent<GeneralInput>();
+            healthHandler = player.GetComponent<HealthHandler>();
         }
 
         void Update()
         {
-            if (block.IsOnCD() && player.data.HealthPercentage > 0.2 && input.shieldWasPressed)
+            if (!block.IsOnCD() && input.shieldWasPressed)
             {
-                player.data.health -= player.data.maxHealth / 5;
+                block.RPCA_DoBlock(true);
+            }
+            else if (block.IsOnCD() && player.data.HealthPercentage > 0.2 && input.shieldWasPressed)
+            {
+                Vector2 damage = Vector2.up * (player.data.maxHealth / 5);
+                healthHandler.TakeDamage(damage, transform.position, null, null, false, true);
                 block.RPCA_DoBlock(true);
             }
         }

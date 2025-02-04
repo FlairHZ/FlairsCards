@@ -22,16 +22,16 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage",
-                    amount = "+25%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
+                    stat = "Projectile Size",
+                    amount = "+45%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Projectile Size",
-                    amount = "+45%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
+                    stat = "Damage",
+                    amount = "+25%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat()
                 {

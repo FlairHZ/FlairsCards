@@ -16,7 +16,7 @@ namespace FlairsCards.MonoBehaviours
         private List<TeamScore> currentScore = new List<TeamScore>();
         private void Start()
         {
-            player = gameObject.GetComponentInParent<Player>();
+            player = GetComponent<Player>();
             gun = player.GetComponent<Holding>().holdable.GetComponent<Gun>();
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, RoundEnd);
         }

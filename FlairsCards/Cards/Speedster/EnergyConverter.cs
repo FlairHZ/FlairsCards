@@ -18,7 +18,8 @@ namespace FlairsCards.Cards
         {
             cardInfo.allowMultiple = false;
             statModifiers.movementSpeed = 1.2f;
-            gun.damage = (float)(statModifiers.movementSpeed * 1.25);
+            // MAKE THIS CONSTANTLY CHANGE IN THE FUTURE
+            gun.damage = (float)(statModifiers.movementSpeed * 1.3);
             FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

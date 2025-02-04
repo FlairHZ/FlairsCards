@@ -27,13 +27,13 @@ namespace FlairsCards.MonoBehaviours
             if (player.data.stats.GetAdditionalData().curseAverse == true)
             {
                 player.data.stats.GetAdditionalData().luck -= tempLuck;
-                luck = UnityEngine.Random.Range(0, 3);
+                luck = UnityEngine.Random.Range(0, 2);
                 player.data.stats.GetAdditionalData().luck += luck;
             }
             else
             {
                 player.data.stats.GetAdditionalData().luck -= tempLuck;
-                luck = UnityEngine.Random.Range(-2, 4);
+                luck = UnityEngine.Random.Range(-2, 3);
                 player.data.stats.GetAdditionalData().luck += luck;
             }
 

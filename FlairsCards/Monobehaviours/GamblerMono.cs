@@ -46,15 +46,42 @@ namespace FlairsCards.Monobehaviours
             shieldBar = obj.AddComponent<CustomHealthBar>();
             shieldBar.transform.localPosition = Vector3.up * 0.25f;
             shieldBar.transform.localScale = Vector3.one;
-            shieldBar.CurrentHealth = 100f;
             int luck = player.data.stats.GetAdditionalData().luck;
             Color shieldColor;
-            if (luck <= -1) shieldColor = Color.red;
-            else if (luck == 0) shieldColor = Color.yellow;
-            else if (luck == 1) shieldColor = Color.cyan;
-            else if (luck == 2) shieldColor = Color.blue;
-            else if (luck <= 4) shieldColor = Color.green;
-            else shieldColor = Color.white;
+            if (luck <= -2) {
+                shieldColor = Color.black;
+                shieldBar.CurrentHealth = 0f;
+            }
+            else if (luck <= -1)
+            {
+                shieldColor = Color.red;
+                shieldBar.CurrentHealth = 15f;
+            }
+            else if (luck == 0)
+            {
+                shieldColor = Color.yellow;
+                shieldBar.CurrentHealth = 30f;
+            }
+            else if (luck == 1)
+            {
+                shieldColor = Color.cyan;
+                shieldBar.CurrentHealth = 45f;
+            }
+            else if (luck == 2)
+            {
+                shieldColor = Color.blue;
+                shieldBar.CurrentHealth = 60f;
+            }
+            else if (luck <= 4)
+            {
+                shieldColor = Color.green;
+                shieldBar.CurrentHealth = 80f;
+            }
+            else
+            {
+                shieldColor = Color.white;
+                shieldBar.CurrentHealth = 100f;
+            }
             shieldBar.SetColor(shieldColor);
             yield break;
         }

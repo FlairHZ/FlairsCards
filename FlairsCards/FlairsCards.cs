@@ -30,7 +30,7 @@ namespace FlairsCards
     {
         private const string ModId = "com.Flair.Mod.FlairsCards";
         private const string ModName = "Flairs Cards";
-        public const string Version = "0.1.5";
+        public const string Version = "0.2.0";
         public const string ModInitials = "FC";
         public const string CursedModInitials = "FC Curse";
         public static FlairsCards? Instance { get; private set; }
@@ -40,8 +40,8 @@ namespace FlairsCards
         //private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cardbundle", typeof(FlairsCards).Assembly);
 
         // Accursed Art
-        /*public static GameObject CardArtAccursed = Bundle.LoadAsset<GameObject>("C_ACCURSED");
-        public static GameObject CardArtCursedDraw = Bundle.LoadAsset<GameObject>("C_CURSEDDRAW");
+        //public static GameObject CardArtAccursed = Bundle.LoadAsset<GameObject>("C_ACCURSED");
+        /*public static GameObject CardArtCursedDraw = Bundle.LoadAsset<GameObject>("C_CURSEDDRAW");
         public static GameObject CardArtFallenAngel = Bundle.LoadAsset<GameObject>("C_FALLENANGEL");
         public static GameObject CardArtPlaguebearer = Bundle.LoadAsset<GameObject>("C_PLAGUEBEARER");
         public static GameObject CardArtSadistic = Bundle.LoadAsset<GameObject>("C_SADISTIC");

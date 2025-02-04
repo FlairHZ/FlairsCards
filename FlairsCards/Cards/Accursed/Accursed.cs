@@ -44,8 +44,8 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            //return FlairsCards.CardArtAccursed;
             return null;
+            //return FlairsCards.CardArtAccursed;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -58,16 +58,16 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Speed",
-                    amount = "+20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                    stat = "Damage",
+                    amount = "+70%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage",
-                    amount = "+70%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
+                    stat = "Speed",
+                    amount = "+20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat()
                 {

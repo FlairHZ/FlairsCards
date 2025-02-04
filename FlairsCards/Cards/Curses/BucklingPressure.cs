@@ -46,17 +46,17 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Speed",
-                    amount = "-40%",
-                    simepleAmount = CardInfoStat.SimpleAmount.lower
+                    stat = "Gravity",
+                    amount = "+40%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Gravity",
-                    amount = "+40%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
-                }
+                    stat = "Speed",
+                    amount = "-40%",
+                    simepleAmount = CardInfoStat.SimpleAmount.lower
+                },
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

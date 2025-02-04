@@ -1,2 +1,0 @@
-C:\Users\3wack\Repos\FlairsCards\FlairsCards\obj\Debug\FlairsCards.csproj.AssemblyReference.cache
-C:\Users\3wack\Repos\FlairsCards\FlairsCards\obj\Debug\FlairsCards.csproj.CoreCompileInputs.cache

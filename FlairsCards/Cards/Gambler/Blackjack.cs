@@ -42,8 +42,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
-            //return FlairsCards.CardArtBlackjack;
+            return FlairsCards.CardArtBlackjack;
         }
         protected override CardInfo.Rarity GetRarity()
         {

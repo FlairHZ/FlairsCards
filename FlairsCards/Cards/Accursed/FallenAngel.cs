@@ -37,12 +37,11 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gain a revive for every 4 curses you have at the time of drawing this card";
+            return "Gain a revive for every 4 curses you have";
         }
         protected override GameObject GetCardArt()
         {
-            return null;
-            //return FlairsCards.CardArtFallenAngel;
+            return FlairsCards.CardArtFallenAngel;
         }
         protected override CardInfo.Rarity GetRarity()
         {

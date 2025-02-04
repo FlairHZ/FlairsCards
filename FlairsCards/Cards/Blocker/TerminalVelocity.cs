@@ -20,7 +20,7 @@ namespace FlairsCards.Cards
             ModName = FlairsCards.ModInitials,
             Rarity = RarityUtils.GetRarity("CommonClass"),
             Theme = CardThemeColor.CardThemeColorType.ColdBlue,
-            //Art = FlairsCards.CardArtTerminalVelocity,
+            Art = FlairsCards.CardArtTerminalVelocity,
             Stats = new[]
             {
                 new CardInfoStat()

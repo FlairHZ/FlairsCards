@@ -40,8 +40,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
-            //return FlairsCards.CardArtEnergyConverter;
+            return FlairsCards.CardArtEnergyConverter;
         }
         protected override CardInfo.Rarity GetRarity()
         {

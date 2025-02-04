@@ -40,8 +40,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
-            //return FlairsCards.CardArtRewind;
+            return FlairsCards.CardArtRewind;
         }
         protected override CardInfo.Rarity GetRarity()
         {

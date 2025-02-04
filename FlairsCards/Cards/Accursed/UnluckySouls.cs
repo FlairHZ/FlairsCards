@@ -48,8 +48,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
-            //return FlairsCards.CardArtUnluckySouls;
+            return FlairsCards.CardArtUnluckySouls;
         }
         protected override CardInfo.Rarity GetRarity()
         {

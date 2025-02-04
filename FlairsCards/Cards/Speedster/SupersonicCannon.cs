@@ -39,8 +39,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
-            //return FlairsCards.CardArtSupersonicCannon;
+            return FlairsCards.CardArtSupersonicCannon;
         }
         protected override CardInfo.Rarity GetRarity()
         {

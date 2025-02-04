@@ -43,8 +43,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
-            //return FlairsCards.CardArtUnholyCurse;
+            return FlairsCards.CardArtUnholyCurse;
         }
         protected override CardInfo.Rarity GetRarity()
         {

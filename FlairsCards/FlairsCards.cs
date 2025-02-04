@@ -35,16 +35,14 @@ namespace FlairsCards
         public const string CursedModInitials = "FC Curse";
         public static FlairsCards? Instance { get; private set; }
 
-        // NEED TO REIMPORT ASSETBUNDLE
-
-        //private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cardbundle", typeof(FlairsCards).Assembly);
+        private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("cardbundle", typeof(FlairsCards).Assembly);
 
         // Accursed Art
-        //public static GameObject CardArtAccursed = Bundle.LoadAsset<GameObject>("C_ACCURSED");
-        /*public static GameObject CardArtCursedDraw = Bundle.LoadAsset<GameObject>("C_CURSEDDRAW");
+        public static GameObject CardArtAccursed = Bundle.LoadAsset<GameObject>("C_ACCURSED");
+        public static GameObject CardArtCursedDraw = Bundle.LoadAsset<GameObject>("C_CURSEDDRAW");
         public static GameObject CardArtFallenAngel = Bundle.LoadAsset<GameObject>("C_FALLENANGEL");
         public static GameObject CardArtPlaguebearer = Bundle.LoadAsset<GameObject>("C_PLAGUEBEARER");
-        public static GameObject CardArtSadistic = Bundle.LoadAsset<GameObject>("C_SADISTIC");
+        public static GameObject CardArtPrayer = Bundle.LoadAsset<GameObject>("C_PRAYER");
         public static GameObject CardArtUnholyCurse = Bundle.LoadAsset<GameObject>("C_UNHOLYCURSE");
         public static GameObject CardArtUnluckySouls = Bundle.LoadAsset<GameObject>("C_UNLUCKYSOULS");
 
@@ -84,7 +82,6 @@ namespace FlairsCards
         public static GameObject CardArtEnergyDrink = Bundle.LoadAsset<GameObject>("C_ENERGYDRINK");
         public static GameObject CardArtSpeedster = Bundle.LoadAsset<GameObject>("C_SPEEDSTER");
         public static GameObject CardArtSupersonicCannon = Bundle.LoadAsset<GameObject>("C_SUPERSONICCANNON");
-*/
         void Awake()
         {
             RarityUtils.AddRarity("CommonClass", 1.5f, new Color(0.0978f, 0.1088f, 0.1321f), new Color(0.0978f, 0.1088f, 0.1321f));

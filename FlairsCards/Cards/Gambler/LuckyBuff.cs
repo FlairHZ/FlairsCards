@@ -42,8 +42,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
-            //return FlairsCards.CardArtLuckyBuff;
+            return FlairsCards.CardArtLuckyBuff;
         }
         protected override CardInfo.Rarity GetRarity()
         {

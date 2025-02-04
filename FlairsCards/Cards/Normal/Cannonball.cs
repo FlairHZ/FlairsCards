@@ -16,7 +16,7 @@ namespace FlairsCards.Cards
             ModName = FlairsCards.ModInitials,
             Rarity = CardInfo.Rarity.Common,
             Theme = CardThemeColor.CardThemeColorType.DefensiveBlue,
-            //Art = FlairsCards.CardArtCannonball,
+            Art = FlairsCards.CardArtCannonball,
             Stats = new[]
                 {
                 new CardInfoStat()

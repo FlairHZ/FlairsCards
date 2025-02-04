@@ -108,7 +108,6 @@ namespace FlairsCards.Monobehaviours
             player.data.stats.movementSpeed += 0.4f;
             if (player.data.health > 0f)
             {
-                // make % based
                 shieldBar.CurrentHealth += Mathf.Round(player.data.maxHealth * 0.15f);
             }
 

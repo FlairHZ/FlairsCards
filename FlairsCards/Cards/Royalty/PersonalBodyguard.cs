@@ -42,8 +42,7 @@ namespace FlairsCards.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
-            //return FlairsCards.CardArtPersonalBodyguard;
+            return FlairsCards.CardArtPersonalBodyguard;
         }
         protected override CardInfo.Rarity GetRarity()
         {

@@ -10,12 +10,12 @@ namespace FlairsCards.MonoBehaviours
     {
         private Player player;
         private Gun gun;
-        private float totalRounds = 0;
-        private List<TeamScore> currentScore = new List<TeamScore>();
+        private int playerTeamID;
         private void Start()
         {
             player = gameObject.GetComponentInParent<Player>();
             gun = player.GetComponent<Holding>().holdable.GetComponent<Gun>();
+            playerTeamID = player.teamID;
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, RoundEnd);
         }
 
@@ -26,16 +26,13 @@ namespace FlairsCards.MonoBehaviours
 
         IEnumerator RoundEnd(IGameModeHandler gm)
         {
-            currentScore.Clear();
-            currentScore = PlayerManager.instance.players.Select(player => player.teamID).Distinct().Select(ID => GameModeManager.CurrentHandler.GetTeamScore(ID)).ToList();
+            int[] roundWinners = gm.GetRoundWinners();
+            bool isWinner = roundWinners.Contains(playerTeamID);
 
-            foreach (var score in currentScore)
+            if (isWinner)
             {
-                totalRounds += score.rounds;
+                gun.damage += 0.15f;
             }
-            gun.damage += (float)((totalRounds - 1) * 0.02);
-
-            totalRounds--;
 
             yield break;
         }

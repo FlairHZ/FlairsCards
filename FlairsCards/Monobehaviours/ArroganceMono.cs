@@ -15,24 +15,17 @@ namespace FlairsCards.MonoBehaviours
             player = gameObject.GetComponentInParent<Player>();
             gun = player.GetComponent<Holding>().holdable.GetComponent<Gun>();
             playerTeamID = player.teamID;
-            GameModeManager.AddHook(GameModeHooks.HookPointEnd, PointEnd);
             GameModeManager.AddHook(GameModeHooks.HookRoundEnd, RoundEnd);
         }
 
         private void OnDestroy()
         {
-            GameModeManager.RemoveHook(GameModeHooks.HookPointEnd, PointEnd);
             GameModeManager.RemoveHook(GameModeHooks.HookRoundEnd, RoundEnd);
         }
 
         IEnumerator RoundEnd(IGameModeHandler gm)
         {
-            yield break;
-        }
-
-        IEnumerator PointEnd(IGameModeHandler gm)
-        {
-            int[] roundWinners = gm.GetPointWinners();
+            int[] roundWinners = gm.GetRoundWinners();
             bool isWinner = roundWinners.Contains(playerTeamID);
 
             if (isWinner)

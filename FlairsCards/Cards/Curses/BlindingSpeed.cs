@@ -9,7 +9,7 @@ namespace FlairsCards.Cards
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.movementSpeed = 3f;
+            statModifiers.movementSpeed = 2.5f;
             cardInfo.categories = new CardCategory[] { CurseManager.instance.curseCategory };
             FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
@@ -46,7 +46,7 @@ namespace FlairsCards.Cards
                 {
                     positive = false,
                     stat = "Speed",
-                    amount = "+300%",
+                    amount = "+250%",
                     simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
                 }
             };

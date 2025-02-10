@@ -55,13 +55,13 @@ namespace FlairsCards.Monobehaviours
                 {
                     player.data.stats.movementSpeed -= 0.4f;
                 }
-                shieldBar.CurrentHealth = 0f;
             }
             if (effectCoroutine != null)
             {
                 StopCoroutine(effectCoroutine);
                 effectCoroutine = null;
             }
+            shieldBar.CurrentHealth = 0f;
             yield break;
         }
 

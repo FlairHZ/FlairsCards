@@ -12,15 +12,15 @@ namespace FlairsCards.MonoBehaviours
         private void Start()
         {
             player = GetComponentInParent<Player>();
-            GameModeManager.AddHook(GameModeHooks.HookBattleStart, BattleStart);
+            GameModeManager.AddHook(GameModeHooks.HookRoundStart, RoundStart);
         }
 
         private void OnDestroy()
         {
-            GameModeManager.RemoveHook(GameModeHooks.HookBattleStart, BattleStart);
+            GameModeManager.RemoveHook(GameModeHooks.HookRoundStart, RoundStart);
         }
 
-        IEnumerator BattleStart(IGameModeHandler gm)
+        IEnumerator RoundStart(IGameModeHandler gm)
         {
             player.data.stats.respawns = (int)(player.data.stats.GetAdditionalData().curses / 4);
 

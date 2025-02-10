@@ -54,14 +54,14 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage/Speed per point won",
+                    stat = "Damage/Speed per round won",
                     amount = "+5%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 },
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Damage/Speed per point lost",
+                    stat = "Damage/Speed per round lost",
                     amount = "-7.5%",
                     simepleAmount = CardInfoStat.SimpleAmount.slightlyLower
                 }

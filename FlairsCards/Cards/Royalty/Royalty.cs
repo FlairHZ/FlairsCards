@@ -17,6 +17,7 @@ namespace FlairsCards.Cards
         }
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            gun.damage = 1.3f;
             cardInfo.allowMultiple = false;
             FCDebug.Log($"[{FlairsCards.ModInitials}][Card] {GetTitle()} has been setup.");
         }
@@ -36,7 +37,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gain stacking damage at the end of each round, depending on how many rounds you've won";
+            return "Gain increasing damage at the end of a round upon winning";
         }
         protected override GameObject GetCardArt()
         {
@@ -53,10 +54,17 @@ namespace FlairsCards.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Damage per round",
-                    amount = "+2%",
+                    stat = "Damage",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
-                }
+                },
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "Damage per round",
+                    amount = "+15%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
+                },
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()

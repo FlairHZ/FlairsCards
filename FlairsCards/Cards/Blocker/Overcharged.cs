@@ -37,7 +37,7 @@ namespace FlairsCards.Cards
         }
         protected override string GetDescription()
         {
-            return "Gain increasing block cooldown as your health decreases. Max at 20% HP.";
+            return "Gain decreasing block cooldown as your health decreases. Max at 20% HP.";
         }
         protected override GameObject GetCardArt()
         {

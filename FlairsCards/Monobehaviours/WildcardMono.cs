@@ -56,11 +56,11 @@ namespace FlairsCards.MonoBehaviours
             // Draw a new card for this turn
             if (player.data.stats.GetAdditionalData().curseAverse == true)
             {
-                chance = UnityEngine.Random.Range(player.data.stats.GetAdditionalData().luck, player.data.stats.GetAdditionalData().luck + 1);
+                chance = UnityEngine.Random.Range(player.data.stats.GetAdditionalData().luck, player.data.stats.GetAdditionalData().luck + 2);
             }
             else
             {
-                chance = UnityEngine.Random.Range(-2 + player.data.stats.GetAdditionalData().luck, player.data.stats.GetAdditionalData().luck);
+                chance = UnityEngine.Random.Range(-1 + player.data.stats.GetAdditionalData().luck, player.data.stats.GetAdditionalData().luck + 2);
             }
             CardInfo newCard = null;
 

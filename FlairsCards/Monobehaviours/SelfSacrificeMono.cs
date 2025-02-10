@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using ModsPlus;
+using Photon.Pun;
 using UnboundLib.GameModes;
 using UnityEngine;
 
@@ -29,7 +31,7 @@ namespace FlairsCards.MonoBehaviours
             else if (block.IsOnCD() && player.data.HealthPercentage > 0.2 && input.shieldWasPressed)
             {
                 Vector2 damage = Vector2.up * (player.data.maxHealth / 5);
-                healthHandler.CallTakeDamage(damage, transform.position, null, null, false);
+                healthHandler.TakeDamage(damage, transform.position, null, null, false);
                 block.RPCA_DoBlock(true);
             }
         }

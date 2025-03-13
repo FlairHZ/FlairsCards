@@ -14,6 +14,8 @@ using UnityEngine.Profiling;
 using WillsWackyManagers.Utils;
 using Jotunn.Utils;
 
+// If you are one of the poor souls looking at my code I am sorry for the horrors you are about to witness
+
 namespace FlairsCards
 {
     [BepInDependency("com.willis.rounds.unbound", BepInDependency.DependencyFlags.HardDependency)]
